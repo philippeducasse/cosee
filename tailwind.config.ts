@@ -7,6 +7,13 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px'
+    },
+    // custom colors
     colors: {
       'cosee-y': '#d4d800',
       'cosee-g': '#4eb147'

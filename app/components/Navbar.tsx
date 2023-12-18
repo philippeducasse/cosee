@@ -15,39 +15,40 @@ const Navbar = () => {
         <div>
             <section>
                 {/* Navbar */}
-                <nav className="relative container bg-cosee-g mx-auto">
-                    <div className="flex items-center justify-between p-5">
-
+                <nav className="relative container bg-cosee-g mx-auto p-6">
+                    {/* Flex Container */}
+                    <div className="flex items-center justify-between">
                         {/* Logo */}
-                        <div className="pt-2 rounded-full">
-                            <Image src='/cosee_logo.jpg' alt='Cosee Logo' width={100} height={50}></Image>
+                        <div className="pt-2">
+                            <Image src='/cosee_logo.jpg' alt='Cosee Logo' width={100} height={50} className='rounded-2xl'></Image>
                         </div>
-
                         {/* Menu Items */}
                         <div className="hidden md:flex space-x-6">
-                            <a href='#'>Über mich</a>
-                            <a href='#'>Über Cosee</a>
+                            <a href='#' className="hover:text-gray-400">Gallery</a>
+                            <a href='/about' className="hover:text-gray-400">Über mich</a>
+                            <a href='/cosee' className="hover:text-gray-400">Über Cosee</a>
                         </div>
 
                         {/* button */}
-                        <a href="#" className="hidden md:block p-2 px-6 pt-2 text-white bg-cosee-y hover:bg-cosee-g rounded-full baseline">Lade einen Bild Hoch</a>
+                        <a href="#" className="hidden md:block p-2 px-6 pt-2 text-white bg-cosee-y hover:bg-cosee-g duration-300 rounded-full baseline">Lade einen Bild Hoch</a>
 
                         {/* Hamburger Icon */}
-                        <button id='menu-btn'
-                            className={`block hamburger md:hidden focus:outline-none ${isOpen ? 'open' : ''}`}
-                            onClick= {toggleMenu}
-                            >
-                            <span className="hamburger-top"></span>
-                            <span className="hamburger-middle"></span>
-                            <span className="hamburger-bottom"></span>
-                        </button>
+                        <div onClick={toggleMenu}>
+                            <button id='menu-btn'
+                                className={`block hamburger md:hidden focus:outline-none ${isOpen ? 'open' : ''}`}>
+                                <span className="hamburger-top"></span>
+                                <span className="hamburger-middle"></span>
+                                <span className="hamburger-bottom"></span>
+                            </button>
+                        </div>
                     </div>
 
                     {/* Mobile Menu */}
                     <div className="md:hidden">
-                        <div id="menu" className={`absolute flex-col items-center py-3 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md ${isOpen ? 'open flex' : 'hidden'}`}>
-                            <a href='#'>Über mich</a>
-                            <a href='#'>Über Cosee</a>
+                        <div id="menu" className={`absolute flex-col items-center font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md ${isOpen ? 'open flex' : 'hidden'}`}>
+                            <a href='#' className="hover:text-gray-400">Gallery</a>
+                            <a href='/about'>Über mich</a>
+                            <a href='/cosee'>Über Cosee</a>
                         </div>
                     </div>
 
