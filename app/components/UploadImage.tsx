@@ -1,57 +1,97 @@
 'use client'
 
-import React from 'react';
-import { useState } from 'react';
-import Image from 'next/image';
-
-// axios image handler
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import { storage, db } from '../firebase/config';
+import { ref, uploadBytesResumable, getDownloadURL, uploadBytes } from "firebase/storage";
+import { collection, addDoc } from 'firebase/firestore';
 
 const UploadImage = () => {
+  const [image, setImage] = useState(null);
+  const [progress, setProgress] = useState(0);
+  const [error, setError] = useState('');
+  const [url, setUrl] = useState('');
 
-  const [image, setImage] = useState(null)
-  const [error, setError] = useState('')
+  useEffect(() => {
+    if (url) {
+      console.log('Upload complete');
+    }
+  }, [url]);
 
   const fileSelectedHandler = (event: any) => {
-    let selected = event.target.files[0]
-    if (selected && selected.includes('img') || selected.includes('image')) {
-      setImage(event.target.files[0]);
+    const selectedImage = event.target.files[0];
+    console.log({selectedImage})
+    if (selectedImage && (selectedImage.type.includes('img') || selectedImage.type.includes('image'))) {
+      setImage(selectedImage);
       setError('');
+    } else {
+      setImage(null);
+      setError('Please select an image file');
     }
-    else {
-      setImage(null)
-      setError('Please select an image file')
+  };
+
+
+  const uploadImage = async (image: any) => {
+    try {
+      console.log({image})
+
+      // ref for storage
+      const storageRef = ref(storage, image.name);
+      //ref for collection
+      const response = await fetch(URL.createObjectURL(image));
+      // Converts image to Blob format
+      const blob = await response.blob();
+      const uploadTask = uploadBytesResumable(storageRef, blob);
+
+      uploadBytes(storageRef, blob).then(() => {
+        console.log('File has been uploaded successfully');
+          let imageCollection = {
+            
+          }
+          addDoc(collection(db, 'images'), imageCollection)
+
+      });
+
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          setProgress(percentage);
+        },
+        (error) => {
+          setError(error.message);
+        },
+        async () => {
+          const imageUrl = await getDownloadURL(uploadTask.snapshot.ref);
+          setUrl(imageUrl);
+        }
+      );
+    } catch (error:any) {
+      setError(error.message);
     }
-  }
-  // Upload Image to firebase
-  const imageUploadHandler = (image: any) => {
-  }
+  };
+
 
   return (
     <div>
-      <h1>Lade eine Bild Hoch</h1>
-      <input
-        type='file'
-        onChange={fileSelectedHandler}
-      />
+      <h1>Upload an Image</h1>
+      <input type='file' onChange={fileSelectedHandler} />
       <div className="output">
         {image && (
           <div>
-            <img
-              alt="not found"
-              width={'250px'}
-              src={URL.createObjectURL(image)}
-            />
+            <img alt="not found" width={'250px'} src={URL.createObjectURL(image)} />
             <br />
             <button onClick={() => { setImage(null); setError('') }}>Remove</button>
+            <button onClick={() => uploadImage(image)}>Upload</button>
           </div>
         )}
         {error && (
           <p className='error'>{error}</p>
         )}
+        {progress > 0 && <p>Progress: {progress}%</p>}
       </div>
+      {url && <p>Image uploaded successfully!</p>}
     </div>
-  )
-}
+  );
+};
 
-export default UploadImage
+export default UploadImage;

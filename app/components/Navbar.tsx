@@ -17,7 +17,7 @@ const Navbar = () => {
                 {/* Navbar */}
                 <nav className="relative container bg-cosee-g mx-auto p-6">
                     {/* Flex Container */}
-                    <div className="flex items-center justify-between">
+                    <div className="flex justify-between">
                         {/* Logo */}
                         <div className="pt-2">
                             <Image src='/cosee_logo.jpg' alt='Cosee Logo' width={100} height={50} className='rounded-2xl'></Image>
