@@ -1,7 +1,9 @@
 'use client'
 
-import { useState } from "react"
-import React from 'react'
+import { useState } from "react";
+import React from 'react';
+import { db } from '../firebase/config';
+import { collection, addDoc, setDoc, doc } from 'firebase/firestore';
 
 
 const TagForm = () => {
@@ -18,8 +20,9 @@ const TagForm = () => {
     // spread operator used used to display rest of the tags
     setTags({...tags, [name]: value});
   }
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
+    await setDoc(doc(db, "tags"), tags)
     console.log(tags)
   }
   return (
