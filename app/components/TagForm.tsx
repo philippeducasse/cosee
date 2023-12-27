@@ -22,7 +22,7 @@ const TagForm = () => {
   }
   const handleSubmit = async (e: any) => {
     e.preventDefault();
-    await setDoc(doc(db, "tags"), tags)
+    await addDoc(collection(db, "tags"), tags )
     console.log(tags)
   }
   return (
