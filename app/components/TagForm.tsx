@@ -6,13 +6,7 @@ import { db } from '../firebase/config';
 import { collection, addDoc, setDoc, doc } from 'firebase/firestore';
 
 
-const TagForm = () => {
-
-  const [tags, setTags] = useState({
-    tag1: '',
-    tag2: '',
-    tag3: '',
-  });
+const TagForm = () => { 
 
 // name refers to tha name attribute on hte input field.
   const handleInputChange = (e: any) => {
