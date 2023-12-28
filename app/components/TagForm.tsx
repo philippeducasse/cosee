@@ -6,9 +6,8 @@ import { db } from '../firebase/config';
 import { collection, addDoc, setDoc, doc } from 'firebase/firestore';
 
 
-const TagForm = () => { 
+const TagForm = ({tags, setTags}) => { 
 
-// name refers to tha name attribute on hte input field.
   const handleInputChange = (e: any) => {
     const {name, value} = e.target
     // spread operator used used to display rest of the tags

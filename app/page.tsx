@@ -1,23 +1,21 @@
-'use client'
+import React from 'react';
+import Navbar from './components/Navbar';
+import Gallery from './components/Gallery';
 
-import React from 'react'
-import Navbar from './components/Navbar'
-import UploadImage from './components/UploadImage'
-import TagForm from './components/TagForm'
-import Gallery from './components/Gallery'
+const HomePage = () => {
+  
+  
 
-const homePage = () => {
   return (
     <div>
       <Navbar />
       <section className='h-screen bg-cosee-y flex items-center justify-center text-center m-12'>
-        <h1>Willkomen bei CoseePics! </h1>
-      <UploadImage />
-      <TagForm />
-      {/* <Gallery /> */}
+        {/* <h1>Willkomen bei CoseePics! </h1>
+        <a href='upload-image'>Upload an Image </a> */}
+      <Gallery />
       </section>
     </div>
   )
 }
 
-export default homePage
+export default HomePage
