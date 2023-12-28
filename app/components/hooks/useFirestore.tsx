@@ -13,9 +13,6 @@ const useFirestore = (collectionName: string) => {
     const [docs, setDocs] = useState<any>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
-
-
-
     useEffect(() => {
         let unsubscribe:() => void;
         const getData = async () => {
@@ -26,10 +23,9 @@ const useFirestore = (collectionName: string) => {
                     querySnapshot.forEach((doc) => {
                         console.log(doc.data)
                         const imageUrl = doc.data().imageUrl
-                        const tag1 = doc.data().tags.tag1
-                        const tag2 = doc.data().tags.tag2
-                        const tag3 = doc.data().tags.tag3
-                        images.push({imageUrl, tag1, tag2, tag3});
+                        // convert tags into an array, makes it easier to filter
+                        const tags = [doc.data().tags.tag1, doc.data().tags.tag2, doc.data().tags.tag3]
+                        images.push({imageUrl, tags});
                         
                     });
                     console.log(images);
