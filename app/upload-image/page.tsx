@@ -14,7 +14,6 @@ const UploadImage = () => {
         tag2: '',
         tag3: '',
     })
-
     const [progress, setProgress] = useState(0);
     const [error, setError] = useState('');
 

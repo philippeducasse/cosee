@@ -6,7 +6,15 @@ import { storage, db } from '../firebase/config';
 const UploadButton = ({ image, setError, tags }) => {
   const [url, setUrl] = useState('');
 
-  const uploadImage = async (image: any) => {
+  type Image = {
+    name: string,
+    imageURL: string,
+    createdAt: string,
+    tags: [string, string, string] // this is specific for wanting a tuple of three strings (which we want)
+    // otherwise you would use the usual 'string[]'
+}
+
+  const uploadImage = async (image: Image | any) => {
     try {
       const storageRef = ref(storage, image.name);
       const response = await fetch(URL.createObjectURL(image));
@@ -32,6 +40,7 @@ const UploadButton = ({ image, setError, tags }) => {
             // Now that you have the URL, add it to Firestore or perform any required actions
             const imageCollection = {
               imageUrl: imageUrl,
+              createdAt: new Date(), 
               tags: tags,
             };
             await addDoc(collection(db, 'images'), imageCollection);

@@ -4,28 +4,31 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { collection, query, onSnapshot } from "firebase/firestore";
 import { db } from '@/app/firebase/config';
+import { orderBy } from 'firebase/firestore/lite';
 
-// type Image = {
-//     imageUrl: string,
-//     tags: object,
-// }
+type Image = {
+    createdAt: string
+    imageUrl: string,
+    tags: [string, string, string],
+}
 const useFirestore = (collectionName: string) => {
-    const [docs, setDocs] = useState<any>([]);
+    const [docs, setDocs] = useState<Image | any>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {
         let unsubscribe:() => void;
         const getData = async () => {
             try {
-                const q = query(collection(db, collectionName));
+                const q = query(collection(db, collectionName), orderBy('createdAt', 'desc'));
                 unsubscribe = onSnapshot(q, (querySnapshot) => {
                     const images: any = [];
                     querySnapshot.forEach((doc) => {
                         console.log(doc.data)
                         const imageUrl = doc.data().imageUrl
+                        const createdAt = doc.data().createdAt
                         // convert tags into an array, makes it easier to filter
                         const tags = [doc.data().tags.tag1, doc.data().tags.tag2, doc.data().tags.tag3]
-                        images.push({imageUrl, tags});
+                        images.push({imageUrl, createdAt, tags});
                         
                     });
                     console.log(images);
