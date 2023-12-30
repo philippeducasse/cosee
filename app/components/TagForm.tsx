@@ -4,9 +4,10 @@ import { useState } from "react";
 import React from 'react';
 import { db } from '../firebase/config';
 import { collection, addDoc, setDoc, doc } from 'firebase/firestore';
+import { TagFormProps } from "../upload/page";
 
 
-const TagForm = ({tags, setTags}) => { 
+const TagForm: React.FC<TagFormProps> = ({tags, setTags}) => { 
 
   const handleInputChange = (e: any) => {
     const {name, value} = e.target

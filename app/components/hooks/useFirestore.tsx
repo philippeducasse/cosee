@@ -1,10 +1,8 @@
 'use client'
 
-import React from 'react'
 import { useState, useEffect } from 'react'
-import { collection, query, onSnapshot } from "firebase/firestore";
+import { collection, query, onSnapshot, orderBy } from "firebase/firestore";
 import { db } from '@/app/firebase/config';
-import { orderBy } from 'firebase/firestore/lite';
 
 type Image = {
     createdAt: string
@@ -12,7 +10,7 @@ type Image = {
     tags: [string, string, string],
 }
 const useFirestore = (collectionName: string) => {
-    const [docs, setDocs] = useState<Image | any>([]);
+    const [docs, setDocs] = useState<Image []>([]);
     const [isLoading, setIsLoading] = useState<boolean>(true);
 
     useEffect(() => {

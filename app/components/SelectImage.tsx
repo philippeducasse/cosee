@@ -1,10 +1,13 @@
 'use client'
 
-const SelectImage = ({ image, setImage, setError }) => {
+import { ChangeEvent } from 'react';
 
-  const fileSelectedHandler = (event: any) => {
-    const selectedImage = event.target.files[0];
-    console.log({ selectedImage })
+import { SelectImageProps } from '../upload/page';
+
+const SelectImage: React.FC<SelectImageProps> = ({ image, error, setImage, setError }) => {
+
+  const fileSelectedHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    const selectedImage = event.target.files?.[0];
     if (selectedImage && (selectedImage.type.includes('img') || selectedImage.type.includes('image'))) {
       setImage(selectedImage);
       setError('');
@@ -25,15 +28,16 @@ const SelectImage = ({ image, setImage, setError }) => {
             <br />
             <button onClick={() => { setImage(null); setError('') }}>Remove</button>
           </div>
-        )}
-        {/* {error && (
-          <p className='error'>{error}</p>
-        )}
-        {progress > 0 && <p>Progress: {progress}%</p>}
+        )};
+          <div>
+        {error && (
+
+            <p className='error'>{error}</p>
+            
+            )}
+            </div>
       </div>
-      {url && <p>Image uploaded successfully!</p>} */}
-      </div>
-    /</div>
+    </div>
   );
 };
 

@@ -64,3 +64,17 @@ body{
 .open .hamburger-bottom{
   transform: rotate(-45deg) translateY(6px) translate(-6px);
 }
+
+/* PROGRESS BAR */
+
+.progress-bar{
+  height: 5px;
+  background-color: gray;
+  margin-top: 20px;
+}
+.hide{
+  display:none;
+}
+.show{
+  display: block;
+}
