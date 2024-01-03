@@ -29,7 +29,7 @@ const Gallery = () => {
   // insert progress bar here if isloading is true
   return (
 
-    <div className='image-gallery flex'>
+    <div className='image-gallery grid grid-cols-3'>
       {/* progress bar? */}
       {isLoading && (
         <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
@@ -39,11 +39,9 @@ const Gallery = () => {
       {!searchInput && docs.map((image: any) => (
 
         <div key={image.imageUrl} className="">
-          <figure>
+          <figure className='grid-item'>
             <img src={image.imageUrl} alt="" width={300} height={300} />
           </figure>
-          <h1>Tags</h1>
-          <span>{image.tag1}</span> <span>{image.tag2}</span> <span>{image.tag3}</span>
         </div>
       ))}
 
@@ -54,8 +52,6 @@ const Gallery = () => {
           <figure>
             <img src={image.imageUrl} alt="" width={300} height={300} />
           </figure>
-          <h1>Tags</h1>
-          <span>{image.tag1}</span> <span>{image.tag2}</span> <span>{image.tag3}</span>
         </div>
 
 
