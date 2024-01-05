@@ -3,13 +3,15 @@ import Navbar from './components/Navbar';
 import Gallery from './components/Gallery';
 
 const HomePage = () => {
-  
-  
+
+
 
   return (
-    <div>
+    <div className='w-screen h-screen flex flex-col items-center overflow-x-clip bg-black'>
       <Navbar />
-      <Gallery />
+      <div className='mt-12 pb-20 bg-black'>
+        <Gallery />
+      </div>
     </div>
   )
 }

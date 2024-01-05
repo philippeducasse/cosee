@@ -102,8 +102,27 @@ body{
 }
 
 /* GALLERY */
+.image-gallery{
+  margin: 6em 0;
+}
 
 .grid-item img{
   margin: 20px auto;
   max-height: 24em;
+}
+
+/* SPINNER  */
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: steelblue;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

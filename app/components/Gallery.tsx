@@ -50,7 +50,7 @@ const Gallery = () => {
     // sets el Ref
     const targetEl = children[targetIndex] as HTMLDivElement;
     if (!targetEl) return;
-    targetEl.style.transform = 'scale(1.75)';
+    targetEl.style.transform = 'scale(1.5)';
     targetEl.style.zIndex = '10';
     selectedIndex.current = targetIndex;
 
@@ -64,32 +64,29 @@ const Gallery = () => {
   });
 
   return (
-    <div className=''>
-
-      <div className="searchbar bg-cosee-g">
-        <input type='text' onChange={handleInput}>
-        </input>
+    <>
+      <div className="searchbar flex justify-center mb-12">
+        <input type='text' onChange={handleInput} placeholder='Search images'className='bg-white py-1 rounded-md text-center text-dark' />
       </div>
 
-      <div className='image-galelry relative transition-all duration-700 h-full my-4' ref={el}>
+      <div className='flex transition-all duration-700 h-full ' ref={el}>
         {/* progress bar? */}
         {isLoading && (
-          <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-            <div className="bg-blue-600 h-2.5 rounded-full" style={{ width: '45%' }}></div>
-          </div>
+          <div className='spinner flex mx-auto justify-center'></div>
         )}
         {!isLoading && !searchInput && docs.map((image: any, index: number) => (
 
           <div
             key={image.imageUrl}
-            className="absolute sahdotransition-all duration-700 top-48 ease-out origin-center rounded-lg bg-no-repeat bg-contain bg-center my-2 cursor-pointer"
+            className="image-gallery flex duration-700 top-48 bottom-48 ease-out origin-center rounded-lg bg-no-repeat bg-contain bg-center mb-12 cursor-pointer"
             onClick={e => selectImage(index)}
             style={{
               width: imageWidth,
               height: imageHeight,
-              boxShadow: '2px 10px 77px -6px rgba(0,0,0,0.85)',
+              boxShadow: '2px 10px 20px -6px rgba(250,250,250,0.95)',
               left: (imageWidth + padX) * index,
-              backgroundImage: `url(${image.imageUrl})`
+              bottom: 200,
+              backgroundImage: `url(${image.imageUrl})`,
             }}
           />
         ))}
@@ -111,7 +108,7 @@ const Gallery = () => {
           />
         ))}
       </div >
-    </div>
+    </>
   )
 }
 

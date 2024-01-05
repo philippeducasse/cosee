@@ -14,24 +14,23 @@ const Navbar = () => {
 
     return (
         <div>
-            <section className='w-full p-6 mx-auto bg-gradient-to-r from-cosee-y to-cosee-g'>
+            <section className='w-screen p-6 mx-auto bg-gradient-to-r from-cosee-y to-cosee-g'>
                 {/* Navbar */}
                 <nav className="relative ">
                     {/* Flex Container */}
-                    <div className="flex justify-around">
+                    <div className="flex justify-evenly text-center">
                         {/* Logo */}
                         <div className="">
                             <Image src='/cosee_logo.jpg' alt='Cosee Logo' width={100} height={50} className='rounded-2xl'></Image>
                         </div>
                         {/* Menu Items */}
                         <div className="nav-list hidden md:flex space-x-6 ">
-                            <Link href='#' className='nav-item'>Gallery</Link>
                             <Link href='/about' className='nav-item'>Über mich</Link>
                             <Link href='/cosee'className='nav-item'>Über Cosee</Link>
                         </div>
 
                         {/* button */}
-                        <a href="#" className="cta hidden md:block p-2 px-6 pt-2 bg-cosee-y duration-300 rounded-full">Lade einen Bild Hoch</a>
+                        <a href="/upload" className="cta hidden md:block p-2 px-6 pt-2 bg-cosee-y duration-300 rounded-full">Lade einen Bild Hoch</a>
 
                         {/* Hamburger Icon */}
                         <div onClick={toggleMenu}>

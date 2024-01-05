@@ -13,13 +13,12 @@ const config: Config = {
       lg: '976px',
       xl: '1440px'
     },
-    // custom colors
-    colors: {
-      'cosee-y': '#d4d800',
-      'cosee-g': '#4eb147'
-
-    },
-    extend: {
+    extend:
+    { // custom colors
+      colors: {
+        'cosee-y': '#d4d800',
+        'cosee-g': '#4eb147',
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -27,6 +26,7 @@ const config: Config = {
       },
     },
   },
+
   plugins: [],
 }
 export default config
