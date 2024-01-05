@@ -2,7 +2,7 @@ import { ref, uploadBytesResumable, getDownloadURL, uploadBytes } from 'firebase
 import { collection, addDoc } from 'firebase/firestore';
 import { storage, db } from '../firebase/config';
 import ProgressBar from './ProgressBar';
-import { UploadButtonProps, Image } from '../upload/page';
+import { UploadButtonProps, Image } from '../page';
 
 
 const UploadButton: React.FC<UploadButtonProps> = ({ image, setError, tags, progress, setProgress}) => {
@@ -53,8 +53,8 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setError, tags, prog
   }
 
   return (
-    <div>
-      <button onClick={handleSubmit}>Upload</button>
+    <div className='flex justify-center '>
+      <button className= 'py-2 px-6 bg-cosee-y'  onClick={handleSubmit}>Upload</button>
       {image && <ProgressBar progress = {progress}/>}
     </div>
   );

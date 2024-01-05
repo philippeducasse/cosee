@@ -25,8 +25,9 @@ const Navbar = () => {
                         </div>
                         {/* Menu Items */}
                         <div className="nav-list hidden md:flex space-x-6 ">
+                            <Link href='/' className='nav-item'>Gallery</Link>
                             <Link href='/about' className='nav-item'>Über mich</Link>
-                            <Link href='/cosee'className='nav-item'>Über Cosee</Link>
+                            <Link href='/cosee' className='nav-item'>Über Cosee</Link>
                         </div>
 
                         {/* button */}

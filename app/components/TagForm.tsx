@@ -4,7 +4,7 @@ import { useState } from "react";
 import React from 'react';
 import { db } from '../firebase/config';
 import { collection, addDoc, setDoc, doc } from 'firebase/firestore';
-import { TagFormProps } from "../upload/page";
+import { TagFormProps } from "../page";
 
 
 const TagForm: React.FC<TagFormProps> = ({tags, setTags}) => { 
@@ -20,14 +20,12 @@ const TagForm: React.FC<TagFormProps> = ({tags, setTags}) => {
     console.log(tags)
   }
   return (
-    <div className='flex'>
+    <div className=' my-12 mx-auto w-50 bg-slate-300 text-center'>
       <h3 className="form-title">Give tags to your images</h3>
-      <form onSubmit={handleSubmit} className='form flex-col'>
-        <input name= 'tag1' type= 'text' className='form-input m-3' value={tags.tag1} onChange={handleInputChange}/>
-        <input name= 'tag2' type= 'text' className='form-input m-3' value={tags.tag2} onChange={handleInputChange}/>
-        <input name= 'tag3' type= 'text' className='form-input m-3' value={tags.tag3} onChange={handleInputChange}/>
-
-        <button type='submit'>Submit</button>
+      <form onSubmit={handleSubmit} className='text-center'>
+        <input name= 'tag1' type= 'text' placeholder='Enter your first tag' className='form-input m-3' value={tags.tag1} onChange={handleInputChange}/>
+        <input name= 'tag2' type= 'text' placeholder='Enter your second tag' className='form-input m-3' value={tags.tag2} onChange={handleInputChange}/>
+        <input name= 'tag3' type= 'text' placeholder='Enter your third tag' className='form-input m-3' value={tags.tag3} onChange={handleInputChange}/>
       </form>
     </div>
   )
