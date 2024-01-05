@@ -18,34 +18,34 @@ const SelectImage: React.FC<SelectImageProps> = ({ image, error, setImage, setEr
   };
 
   return (
-    <div className='w-50 mx-auto flex flex-col'>
-      <div className="w-full h-20 bg-blue-500 mt-12">
+    <div className='w-3/5 mx-auto flex flex-col'>
+      <div className="w-full h-20 mt-12 text-center content-center">
 
         <h1 className='text-center text-2xl'>Upload an Image</h1>
-      </div>
-      <input className='block w-full text-sm text-slate-500
+        <input className='w-50 mt-4 text-sm text-slate-500
         file:mr-4 file:py-2 file:px-4 file:rounded-md
         file:border-0 file:text-sm file:font-semibold
         file:bg-green-50 file:text-green-700
         hover:file:bg-green-100'
-        type='file' onChange={fileSelectedHandler} />
-      <div className="output">
+          type='file' onChange={fileSelectedHandler} />
+      </div>
+      <div className="flex justify-center my-5">
         {image && (
           <div>
             <img alt="not found" width={'250px'} src={URL.createObjectURL(image)} />
             <br />
-            <button className='block w-full text-sm text-slate-500
+            <button className='block w-full text-sm text-black
               mr-4 py-2 px-4 rounded-md
-              border-0 text-sm font-semibold
-            bg-green-50 text-green-700
-              hover:bg-green-100'
+              border-0 
+              bg-green-500
+              hover:bg-green-300'
               onClick={() => { setImage(null); setError('') }}>Remove</button>
           </div>
         )}
         <div>
           {error && (
 
-            <p className='error'>{error}</p>
+            <p className='text-red-400 font-bold'>{error}</p>
 
           )}
         </div>

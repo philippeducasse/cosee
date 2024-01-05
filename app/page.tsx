@@ -18,6 +18,8 @@ export type UploadButtonProps = {
   progress: number;
   setError: React.Dispatch<React.SetStateAction<string | any>>;
   setProgress: React.Dispatch<React.SetStateAction<number>>;
+  setImage: React.Dispatch<React.SetStateAction<File | any>>;
+
 }
 
 export type SelectImageProps = {
