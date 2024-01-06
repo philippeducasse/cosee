@@ -26,7 +26,7 @@ const UploadImage = () => {
                 <SelectImage image={image} setImage={setImage} setError={setError} error={error} />
                 <TagForm tags={tags} setTags={setTags} />
             </div>
-                <UploadButton image={image} setImage={setImage} setError={setError} tags={tags} progress={progress} setProgress={setProgress} />
+                <UploadButton image={image} setImage={setImage} setError={setError} tags={tags} setTags={setTags} progress={progress} setProgress={setProgress} />
         </div>
     )
 }

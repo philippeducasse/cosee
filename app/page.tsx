@@ -19,6 +19,7 @@ export type UploadButtonProps = {
   setError: React.Dispatch<React.SetStateAction<string | any>>;
   setProgress: React.Dispatch<React.SetStateAction<number>>;
   setImage: React.Dispatch<React.SetStateAction<File | any>>;
+  setTags: React.Dispatch<React.SetStateAction<{tag1: string, tag2: string, tag3: string} | any>>;
 
 }
 

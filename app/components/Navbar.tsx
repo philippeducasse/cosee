@@ -47,9 +47,9 @@ const Navbar = () => {
                     {/* Mobile Menu */}
                     <div className="md:hidden">
                         <div id="menu" className={`absolute flex-col items-center font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md ${isOpen ? 'open flex' : 'hidden'}`}>
-                            <a href='#' className="hover:text-gray-400">Gallery</a>
-                            <a href='/about'>Über mich</a>
-                            <a href='/cosee'>Über Cosee</a>
+                            <a href='/' className="hover:text-gray-400">Gallery</a>
+                            <a href='/about' className="hover:text-gray-400">Über mich</a>
+                            <a href='/cosee'className="hover:text-gray-400">Über Cosee</a>
                         </div>
                     </div>
 

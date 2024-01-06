@@ -2,8 +2,7 @@
 
 import React from 'react';
 import useFirestore from './hooks/useFirestore';
-import { useState, useEffect, useRef } from 'react'
-import './components.css'
+import { useState, useEffect, useRef } from 'react';
  
 
 const Gallery = () => {
@@ -19,7 +18,7 @@ const Gallery = () => {
   useEffect(() => {
     const searchByTags = () => {
       // here we use the some method to return images which tags contain a partial instance of the searchInput
-      setFilteredImages(docs.filter((image) => image.tags.some((tag) => tag.includes(searchInput))))
+      setFilteredImages(docs.filter((image) => image.tags.some((tag) => tag.toLowerCase().includes(searchInput.toLowerCase()))))
     }
     searchByTags();
   }, [searchInput])
@@ -49,10 +48,14 @@ const Gallery = () => {
     };
 
     // sets el Ref
-    const targetEl = children[targetIndex] as HTMLDivElement;
+    let targetEl = children[targetIndex] as HTMLDivElement;
     if (!targetEl) return;
     targetEl.style.transform = 'scale(1.5)';
     targetEl.style.zIndex = '10';
+    if (children.length < 3){
+      selectedIndex.current = 0
+    }
+  
     selectedIndex.current = targetIndex;
 
     // update container width
@@ -61,13 +64,17 @@ const Gallery = () => {
   };
 
   useEffect(() => {
-    selectImage(2);
+    {filteredImages.length > 0 && filteredImages.length <3 ? selectImage(0) : selectImage(2)};
   }, [docs, filteredImages]);
 
   return (
     <>
-      <div className="searchbar flex justify-center mb-12">
-        <input type='text' onChange={handleInput} placeholder='Search images' className='bg-white py-1 rounded-md text-center text-dark' />
+      <div className="flex justify-center mb-12">
+        <input 
+        type='text' 
+        onChange={handleInput}
+        placeholder='Search images'
+        className='search-input' />
       </div>
 
       <div className='flex transition-all duration-700 h-full ' ref={el}>
@@ -79,12 +86,12 @@ const Gallery = () => {
 
           <div
             key={image.imageUrl}
-            className="image-gallery flex duration-700 ease-out origin-center rounded-lg bg-no-repeat bg-black bg-contain bg-center mb-12 cursor-pointer"
+            className="image-gallery flex duration-700 ease-out origin-center rounded-lg bg-no-repeat bg-white bg-contain bg-center mb-12 cursor-pointer"
             onClick={e => selectImage(index)}
             style={{
               width: imageWidth,
               height: imageHeight,
-              boxShadow: '10px 10px 20px -2px rgba(250,250,250,0.95)',
+              boxShadow: '10px 10px 20px -2px rgba(0,0,0,0.85)',
               backgroundImage: `url(${image.imageUrl})`,
             }}
           />
@@ -95,12 +102,12 @@ const Gallery = () => {
 
           <div
             key={image.imageUrl}
-            className="image-gallery w-full flex duration-700 ease-out origin-center rounded-lg bg-no-repeat bg-black bg-contain bg-center mb-12 cursor-pointer"
+            className="image-gallery w-full flex duration-700 ease-out origin-center rounded-lg bg-no-repeat bg-white bg-contain bg-center mb-12 cursor-pointer"
             onClick={e => selectImage(index)}
             style={{
               width: imageWidth,
               height: imageHeight,
-              boxShadow: '10px 10px 20px -6px rgba(250,250,250,0.95)',
+              boxShadow: '10px 10px 20px -2px rgba(0,0,0,0.85)',
               backgroundImage: `url(${image.imageUrl})`
             }}
           />
