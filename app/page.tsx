@@ -37,9 +37,9 @@ const HomePage = () => {
 
 
   return (
-    <div className='w-screen h-screen flex flex-col items-center overflow-x-clip bg-black'>
+    <div className='w-screen h-screen flex flex-col items-center overflow-x-clip'>
       <Navbar />
-      <div className='mt-12 pb-20 bg-black'>
+      <div className='mt-12 pb-20'>
         <Gallery />
       </div>
     </div>

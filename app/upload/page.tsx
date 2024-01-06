@@ -20,14 +20,14 @@ const UploadImage = () => {
 
 
     return (
-        <>
+        <div className='bg-white pb-10'>
             <Navbar />
             <div className='flex justify-center align-center'>
                 <SelectImage image={image} setImage={setImage} setError={setError} error={error} />
                 <TagForm tags={tags} setTags={setTags} />
             </div>
                 <UploadButton image={image} setImage={setImage} setError={setError} tags={tags} progress={progress} setProgress={setProgress} />
-        </>
+        </div>
     )
 }
 

@@ -3,7 +3,8 @@
 import React from 'react';
 import useFirestore from './hooks/useFirestore';
 import { useState, useEffect, useRef } from 'react'
-
+import './components.css'
+ 
 
 const Gallery = () => {
   const { docs, isLoading } = useFirestore('images');
@@ -41,7 +42,7 @@ const Gallery = () => {
 
     // sets selectedIndex Ref
     // the last part of the conditional makes sure that filterImages will not try to access unavailable image
-    if (selectedIndex.current !== -1 && selectedIndex.current < children.length ) { 
+    if (selectedIndex.current !== -1 && selectedIndex.current < children.length) {
       const currentEl = children[selectedIndex.current] as HTMLDivElement;
       currentEl.style.transform = 'scale(1)';
       currentEl.style.zIndex = '0';
@@ -61,12 +62,12 @@ const Gallery = () => {
 
   useEffect(() => {
     selectImage(2);
-  });
+  }, [docs, filteredImages]);
 
   return (
     <>
       <div className="searchbar flex justify-center mb-12">
-        <input type='text' onChange={handleInput} placeholder='Search images'className='bg-white py-1 rounded-md text-center text-dark' />
+        <input type='text' onChange={handleInput} placeholder='Search images' className='bg-white py-1 rounded-md text-center text-dark' />
       </div>
 
       <div className='flex transition-all duration-700 h-full ' ref={el}>
@@ -78,14 +79,12 @@ const Gallery = () => {
 
           <div
             key={image.imageUrl}
-            className="image-gallery flex duration-700 top-48 bottom-48 ease-out origin-center rounded-lg bg-no-repeat bg-contain bg-center mb-12 cursor-pointer"
+            className="image-gallery flex duration-700 ease-out origin-center rounded-lg bg-no-repeat bg-black bg-contain bg-center mb-12 cursor-pointer"
             onClick={e => selectImage(index)}
             style={{
               width: imageWidth,
               height: imageHeight,
-              boxShadow: '2px 10px 20px -6px rgba(250,250,250,0.95)',
-              left: (imageWidth + padX) * index,
-              bottom: 200,
+              boxShadow: '10px 10px 20px -2px rgba(250,250,250,0.95)',
               backgroundImage: `url(${image.imageUrl})`,
             }}
           />
@@ -96,13 +95,12 @@ const Gallery = () => {
 
           <div
             key={image.imageUrl}
-            className="absolute sahdotransition-all duration-700 top-48 ease-out origin-center rounded-lg bg-no-repeat bg-contain bg-center my-2 cursor-pointer"
+            className="image-gallery w-full flex duration-700 ease-out origin-center rounded-lg bg-no-repeat bg-black bg-contain bg-center mb-12 cursor-pointer"
             onClick={e => selectImage(index)}
             style={{
               width: imageWidth,
               height: imageHeight,
-              boxShadow: '2px 10px 77px -6px rgba(0,0,0,0.85)',
-              left: (imageWidth + padX) * index,
+              boxShadow: '10px 10px 20px -6px rgba(250,250,250,0.95)',
               backgroundImage: `url(${image.imageUrl})`
             }}
           />
