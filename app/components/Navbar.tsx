@@ -31,7 +31,7 @@ const Navbar = () => {
                         </div>
 
                         {/* button */}
-                        <a href="/upload" className="cta hidden md:block p-2 px-6 pt-2 bg-cosee-y duration-300 rounded-full">Lade einen Bild Hoch</a>
+                        <Link href="/upload" className="cta hidden md:block p-2 px-6 pt-2 bg-cosee-y duration-300 rounded-full">Lade einen Bild Hoch</Link>
 
                         {/* Hamburger Icon */}
                         <div onClick={toggleMenu}>
