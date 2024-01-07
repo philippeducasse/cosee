@@ -1,5 +1,4 @@
-'use client'
-
+'use client';
 import React from 'react'
 import SelectImage from '../components/SelectImage';
 import TagForm from '../components/TagForm';
