@@ -29,6 +29,7 @@ export type SelectImageProps = {
   setImage: React.Dispatch<React.SetStateAction<File | any>>;
   setError: React.Dispatch<React.SetStateAction<string>>;
 }
+//
 
 export type TagFormProps = {
   tags:{tag1: string, tag2: string, tag3: string};
