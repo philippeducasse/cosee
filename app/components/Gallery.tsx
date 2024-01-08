@@ -40,7 +40,7 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
 
     // update container width
     const galleryWidth = imageWidth + padX;
-    el.current!.style.transform = `translateX(calc(50% - ${galleryWidth * targetIndex + galleryWidth * 0.5}px))`
+    el.current!.style.transform = `translateX(calc(50% - ${galleryWidth * targetIndex + galleryWidth * 0.4}px))`
   };
 
   useEffect(() => {
@@ -54,22 +54,7 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
         {isLoading && (
           <div className='spinner flex mx-auto justify-center'></div>
         )}
-        {/* {!isLoading && !searchInput && docs.map((image: any, index: number) => (
-
-          <div
-            key={image.imageUrl}
-            className="image-gallery flex duration-700 ease-out origin-center rounded-lg bg-no-repeat bg-white bg-contain bg-center mb-12 cursor-pointer"
-            onClick={e => selectImage(index)}
-            style={{
-              width: imageWidth,
-              height: imageHeight,
-              boxShadow: '10px 10px 20px -2px rgba(0,0,0,0.85)',
-              backgroundImage: `url(${image.imageUrl})`,
-            }}
-          />
-        ))} */}
-
-
+        
         {!isLoading && filteredImages.map((image: any, index: number) => (
 
           <div
