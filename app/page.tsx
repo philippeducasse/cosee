@@ -23,7 +23,7 @@ export type UploadButtonProps = {
 
 }
 
-export type SelectImageProps = {
+export type SelectImageProps = {}
   image: any | Blob;
   error: string;
   setImage: React.Dispatch<React.SetStateAction<File | any>>;
