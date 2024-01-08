@@ -1,6 +1,10 @@
-import React from 'react';
+'use client';
+import React, {useEffect, useState} from 'react';
 import Navbar from './components/Navbar';
 import Gallery from './components/Gallery';
+import useFirestore from './components/hooks/useFirestore';
+import SearchBar from './components/SearchBar';
+
 
 // export allows us to define types only once and reuse them in other components
 export type Image = {
@@ -13,13 +17,13 @@ export type Image = {
 
 
 export type UploadButtonProps = {
-  image: Image | null ;
-  tags: {tag1: string, tag2: string, tag3: string}
+  image: Image | null;
+  tags: { tag1: string, tag2: string, tag3: string }
   progress: number;
   setError: React.Dispatch<React.SetStateAction<string | any>>;
   setProgress: React.Dispatch<React.SetStateAction<number>>;
   setImage: React.Dispatch<React.SetStateAction<File | any>>;
-  setTags: React.Dispatch<React.SetStateAction<{tag1: string, tag2: string, tag3: string} | any>>;
+  setTags: React.Dispatch<React.SetStateAction<{ tag1: string, tag2: string, tag3: string } | any>>;
 
 }
 
@@ -32,17 +36,44 @@ export type SelectImageProps = {
 //
 
 export type TagFormProps = {
-  tags:{tag1: string, tag2: string, tag3: string};
-  setTags: React.Dispatch<React.SetStateAction<{tag1: string, tag2: string, tag3: string} | any>>;
+  tags: { tag1: string, tag2: string, tag3: string };
+  setTags: React.Dispatch<React.SetStateAction<{ tag1: string, tag2: string, tag3: string } | any>>;
 }
+
+export type SearchBarProps = {
+  setSearchInput: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export type GalleryProps = {
+  filteredImages: any [];
+  isLoading: boolean;
+}
+
 const HomePage = () => {
 
+  const [searchInput, setSearchInput] = useState('');
+  const { docs, isLoading } = useFirestore('images');
+  const [filteredImages, setFilteredImages] = useState<any>([]);
+
+  useEffect(() => {
+    if (searchInput) {
+      const filtered = docs.filter((image) =>
+        image.tags.some((tag) =>
+          tag.toLowerCase().includes(searchInput.toLowerCase())
+        )
+      );
+      setFilteredImages(filtered);
+    } else {
+      setFilteredImages(docs);
+    }
+  }, [docs, searchInput]);
 
   return (
     <div className='w-screen h-screen flex flex-col items-center overflow-x-clip'>
       <Navbar />
       <div className='mt-12 pb-20'>
-        <Gallery />
+        <SearchBar setSearchInput = {setSearchInput}/>
+        <Gallery filteredImages={filteredImages} isLoading={isLoading}/>
       </div>
     </div>
   )

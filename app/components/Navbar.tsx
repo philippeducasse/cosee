@@ -18,25 +18,27 @@ const Navbar = () => {
                 {/* Navbar */}
                 <nav className="relative ">
                     {/* Flex Container */}
-                    <div className="flex justify-evenly text-center">
+                    <div className="flex px-8">
                         {/* Logo */}
-                        <div className="">
-                            <Image src='/cosee_logo.jpg' alt='Cosee Logo' width={100} height={50} className='rounded-2xl'></Image>
-                        </div>
+                            <Image src='/cosee_logo.jpg' alt='Cosee Logo' width={150} height={10} className='rounded-2xl'></Image>
                         {/* Menu Items */}
-                        <div className="nav-list hidden md:flex space-x-6 ">
-                            <Link href='/' className='nav-item'>Gallery</Link>
-                            <Link href='/about' className='nav-item'>Über mich</Link>
-                            <Link href='/cosee' className='nav-item'>Über Cosee</Link>
-                        </div>
+                        <div className="nav-list hidden md:flex justify-evenly w-full space-x-6">
+                            <Link href='/' className='nav-item my-auto'>Gallerie</Link>
+                            <Link href='/about' className='nav-item my-auto'>Über mich</Link>
+                            <Link href='/cosee' className='nav-item my-auto'>Über Cosee</Link>
 
+                        </div>
                         {/* button */}
-                        <Link href="/upload" className="cta hidden md:block p-2 px-6 pt-2 bg-cosee-y duration-300 rounded-full">Lade einen Bild Hoch</Link>
+                        <Link href="/upload"
+                         className="cta hidden md:block p-2 px-6 pt-2 bg-cosee-y duration-300 rounded-full w-100 text-center"
+                         >
+                            Bild hochladen
+                         </Link>
 
                         {/* Hamburger Icon */}
-                        <div onClick={toggleMenu}>
+                        <div onClick={toggleMenu} className='flex'>
                             <button id='menu-btn'
-                                className={`block hamburger md:hidden focus:outline-none ${isOpen ? 'open' : ''}`}>
+                                className={`hamburger md:hidden focus:outline-none ${isOpen ? 'open' : ''}`}>
                                 <span className="hamburger-top"></span>
                                 <span className="hamburger-middle"></span>
                                 <span className="hamburger-bottom"></span>

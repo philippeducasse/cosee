@@ -19,9 +19,9 @@ const UploadImage = () => {
 
 
     return (
-        <div className='bg-white pb-10'>
+        <div className='pb-10'>
             <Navbar />
-            <div className='flex justify-center align-center'>
+            <div className='flex justify-center align-center lg:mx-32 bg-white bg-opacity-70'>
                 <SelectImage image={image} setImage={setImage} setError={setError} error={error} />
                 <TagForm tags={tags} setTags={setTags} />
             </div>

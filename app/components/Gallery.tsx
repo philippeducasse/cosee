@@ -1,30 +1,10 @@
 'use client'
 
-import React from 'react';
-import useFirestore from './hooks/useFirestore';
-import { useState, useEffect, useRef } from 'react';
- 
+import React, { FC } from 'react';
+import { useEffect, useRef } from 'react';
+import { GalleryProps } from '../page';
 
-const Gallery = () => {
-  const { docs, isLoading } = useFirestore('images');
-
-  const [searchInput, setSearchInput] = useState('');
-  const [filteredImages, setFilteredImages] = useState<any>([]);
-
-  const handleInput = (e: any) => {
-    e.preventDefault
-    setSearchInput(e.target.value)
-  }
-  useEffect(() => {
-    const searchByTags = () => {
-      // here we use the some method to return images which tags contain a partial instance of the searchInput
-      setFilteredImages(docs.filter((image) => image.tags.some((tag) => tag.toLowerCase().includes(searchInput.toLowerCase()))))
-    }
-    searchByTags();
-  }, [searchInput])
-
-  console.log(docs);
-  // insert progress bar here if isloading is true
+const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
 
   const imageWidth = 250;
   const imageHeight = 300;
@@ -52,10 +32,10 @@ const Gallery = () => {
     if (!targetEl) return;
     targetEl.style.transform = 'scale(1.5)';
     targetEl.style.zIndex = '10';
-    if (children.length < 3){
+    if (children.length < 3) {
       selectedIndex.current = 0
     }
-  
+
     selectedIndex.current = targetIndex;
 
     // update container width
@@ -64,25 +44,17 @@ const Gallery = () => {
   };
 
   useEffect(() => {
-    {filteredImages.length > 0 && filteredImages.length <3 ? selectImage(0) : selectImage(2)};
-  }, [docs, filteredImages]);
+    { filteredImages.length > 0 && filteredImages.length < 3 ? selectImage(0) : selectImage(2) };
+  }, [filteredImages]);
 
   return (
     <>
-      <div className="flex justify-center mb-12">
-        <input 
-        type='text' 
-        onChange={handleInput}
-        placeholder='Search images'
-        className='search-input' />
-      </div>
-
       <div className='flex transition-all duration-700 h-full ' ref={el}>
         {/* progress bar? */}
         {isLoading && (
           <div className='spinner flex mx-auto justify-center'></div>
         )}
-        {!isLoading && !searchInput && docs.map((image: any, index: number) => (
+        {/* {!isLoading && !searchInput && docs.map((image: any, index: number) => (
 
           <div
             key={image.imageUrl}
@@ -95,10 +67,10 @@ const Gallery = () => {
               backgroundImage: `url(${image.imageUrl})`,
             }}
           />
-        ))}
+        ))} */}
 
 
-        {!isLoading && searchInput && filteredImages.map((image: any, index: number) => (
+        {!isLoading && filteredImages.map((image: any, index: number) => (
 
           <div
             key={image.imageUrl}
