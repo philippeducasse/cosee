@@ -6,9 +6,13 @@ import { GalleryProps } from '../page';
 
 const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
 
-  const imageWidth = 250;
-  const imageHeight = 300;
+  // Determine the image width based on the screen size
+  // This is a short term solution, requires a refresh
+  const imageWidth = window.innerWidth < 500 ? 150 : 250;
+  const imageHeight = window.innerWidth < 500 ? 200 : 300;
+
   const padX = 10;
+
 
   // Instance variable to save current selected photo
   const selectedIndex = useRef(-1);
@@ -59,13 +63,13 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
 
           <div
             key={image.imageUrl}
-            className="image-gallery w-full flex duration-700 ease-out origin-center rounded-lg bg-no-repeat bg-white bg-contain bg-center mb-12 cursor-pointer"
+            className="image-gallery w-full sm:w-3/4 sm:h-auto flex  duration-700 ease-out origin-center rounded-lg bg-no-repeat bg-white bg-contain bg-center mb-12 cursor-pointer"
             onClick={e => selectImage(index)}
             style={{
               width: imageWidth,
               height: imageHeight,
               boxShadow: '10px 10px 20px -2px rgba(0,0,0,0.85)',
-              backgroundImage: `url(${image.imageUrl})`
+              backgroundImage: `url(${image.imageUrl})`,
             }}
           />
         ))}

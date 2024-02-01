@@ -5,8 +5,8 @@ const about = () => {
     return (
         <div>
             <Navbar />
-            <section className='block w-1/2 mx-auto p-8 bg-white bg-opacity-70'>
-                <h1 className='text-center text-3xl'>Hallo, ich heisse Philippe Ducasse</h1>
+            <section className='block lg:w-1/2 mx-auto p-8 bg-white bg-opacity-70'>
+                <h1 className='text-center text-2xl'>Hallo, ich heisse Philippe Ducasse</h1>
                 <img src= '/Neutral2.jpg' width={200} height={200} className='rounded-full mx-auto my-10'/>
                 <article>
                     <p className="">

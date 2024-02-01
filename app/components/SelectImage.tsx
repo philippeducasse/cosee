@@ -21,7 +21,7 @@ const SelectImage: React.FC<SelectImageProps> = ({ image, error, setImage, setEr
     <div className='w-3/5 mx-auto flex flex-col'>
       <div className="w-full h-20 mt-12 text-center content-center">
 
-        <h1 className='text-center text-2xl'>Upload an Image</h1>
+        <h1 className='text-center text-2xl'>Bild hochladen </h1>
         <input className='w-50 mt-4 text-sm text-slate-500
         file:mr-4 file:py-2 file:px-4 file:rounded-md
         file:border-0 file:text-sm file:font-semibold
@@ -34,12 +34,12 @@ const SelectImage: React.FC<SelectImageProps> = ({ image, error, setImage, setEr
           <div>
             <img alt="not found" width={'250px'} src={URL.createObjectURL(image)} />
             <br />
-            <button className='block w-full text-sm text-black
+            <button className='block w-full text-md text-black
               mr-4 py-2 px-4 rounded-md
               border-0 
               bg-green-500
               hover:bg-green-300'
-              onClick={() => { setImage(null); setError('') }}>Remove</button>
+              onClick={() => { setImage(null); setError('') }}>Entfernen</button>
           </div>
         )}
         <div>

@@ -57,8 +57,8 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, 
 
   return (
     <div className='flex flex-col justify-center '>
-      <button className= 'py-2 px-6 w-1/5 self-center my-4 bg-cosee-y rounded-md hover:bg-opacity-70 font-bold'
-      onClick={handleSubmit}>Upload</button>
+      <button className= 'py-2 px-6 lg:w-1/5 self-center my-4 bg-cosee-y rounded-md hover:bg-opacity-70 font-bold'
+      onClick={handleSubmit}>Hochladen</button>
       {image && <ProgressBar progress = {progress}/>}
     </div>
   );

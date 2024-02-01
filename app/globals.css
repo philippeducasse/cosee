@@ -25,8 +25,8 @@ body{
 
 .hamburger{
   position:absolute;
-  top: 35px;
-  left: 355px;
+  top: 25px;
+  left: 250px;
   cursor: pointer;
   width: 24px;
   height: 24px;
@@ -67,16 +67,16 @@ body{
 .open .hamburger-bottom{
   transform: rotate(-45deg) translateY(6px) translate(-6px);
 }
-
+/* NAVBAR */
 .nav-list{
-  font-size: 1.25rem;
-  color:#000;
+  font-size: 1rem;
+  color:#333333;
   margin: auto;
   font-weight: 600;
 }
 
 .nav-item:hover{
-  color: #3e3e3e;
+  color: #666565;
 }
 
 .cta{
@@ -120,20 +120,16 @@ body{
 
 .search-input{
   padding: 0.25em 0;
-  border: 2px solid rgb(95, 95, 236) ;
+  border: 3px solid rgb(248, 215, 53) ;
   text-align: center;
+  border-radius: 10px;
   font-size: 1em;
   color: #000;
+  transition: all 500ms;
 }
 
 .search-input:focus-visible{
-  border: none;
-  box-shadow: none;
-  padding: 0.25em 0;
-  border: 2px solid rgb(95, 95, 236) ;
-  text-align: center;
-  font-size: 1em;
-  color: #000;
+  border: 3px solid #4eb147!important ;
 }
 .image-gallery{
   margin: 6em 0;
@@ -143,7 +139,9 @@ body{
   margin: 20px auto;
   max-height: 24em;
 }
-
+@media screen and (max-width: 500px) {
+  
+}
 /* SPINNER  */
 
 .spinner {
