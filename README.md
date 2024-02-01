@@ -1,11 +1,12 @@
 ## Cosee App
 
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## About the App
 
 This app allows users to browse an image gallery and search images according to their tags. Users can also upload their own images and give them three tags. 
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 # Technologies used
 
