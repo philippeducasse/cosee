@@ -13,7 +13,7 @@ const SelectImage: React.FC<SelectImageProps> = ({ image, error, setImage, setEr
       setError('');
     } else {
       setImage(null);
-      setError('Please select an image file');
+      setError('Bitte wähle eine Bilddatei');
     }
   };
 
