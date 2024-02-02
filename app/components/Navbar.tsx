@@ -49,7 +49,7 @@ const Navbar = () => {
                     {/* Mobile Menu */}
                     <div className="md:hidden">
                         <div id="menu" className={`absolute flex-col m-2 items-center bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md ${isOpen ? 'open flex' : 'hidden'}`}>
-                            <Link href='/' className='nav-item py-1'>GALLERIE</Link>
+                            <Link href='/' className='nav-item py-1'>GALERIE</Link>
                             <Link href='/about' className='nav-item py-1'>ÜBER MICH</Link>
                             <Link href='/cosee' className='nav-item py-1'>ÜBER COSEE</Link>
                         </div>

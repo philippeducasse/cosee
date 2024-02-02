@@ -37,8 +37,8 @@ const SelectImage: React.FC<SelectImageProps> = ({ image, error, setImage, setEr
             <button className='block w-full text-md text-black
               mr-4 py-2 px-4 rounded-md
               border-0 
-              bg-green-500
-              hover:bg-green-300'
+              bg-cosee-g
+              hover:bg-green-500'
               onClick={() => { setImage(null); setError('') }}>Entfernen</button>
           </div>
         )}

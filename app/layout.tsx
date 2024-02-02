@@ -5,8 +5,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Cosee Mate App',
-  description: 'Lade deine Mate Bildern hoch!',
+  title: 'Cosee Bild App',
+  description: 'Lade deine Bildern hoch!',
 }
 
 export default function RootLayout({
