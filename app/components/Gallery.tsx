@@ -11,27 +11,24 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
   const imageWidth = typeof window !== 'undefined' && window.innerWidth < 500 ? 150 : 250;
   const imageHeight = typeof window !== 'undefined' && window.innerWidth < 500 ? 200 : 300;
 
-  const padX = 10;
-
-
   // Instance variable to save current selected photo
   const selectedIndex = useRef(-1);
   // Reference to gallery container
   const el = useRef<HTMLDivElement>(null);
-  console.log(el);
 
   const selectImage = (targetIndex: number) => {
     const children = el.current!.children;
 
-    // sets selectedIndex Ref
-    // the last part of the conditional makes sure that filterImages will not try to access unavailable image
+    // resets styles for previously selected images
+    
     if (selectedIndex.current !== -1 && selectedIndex.current < children.length) {
       const currentEl = children[selectedIndex.current] as HTMLDivElement;
       currentEl.style.transform = 'scale(1)';
       currentEl.style.zIndex = '0';
     };
 
-    // sets el Ref
+    // set style for new selected image
+
     let targetEl = children[targetIndex] as HTMLDivElement;
     if (!targetEl) return;
     targetEl.style.transform = 'scale(1.5)';
@@ -40,11 +37,11 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
       selectedIndex.current = 0
     }
 
+    // updated selectedIndex with current targetIndex
     selectedIndex.current = targetIndex;
 
     // update container width
-    const galleryWidth = imageWidth + padX;
-    el.current!.style.transform = `translateX(calc(50% - ${galleryWidth * targetIndex + galleryWidth * 0.4}px))`
+    el.current!.style.transform = `translateX(calc(50% - ${imageWidth * targetIndex + imageWidth * 0.4}px))`
   };
 
   useEffect(() => {
