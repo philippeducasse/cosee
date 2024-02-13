@@ -20,7 +20,7 @@ const Navbar = () => {
                     {/* Flex Container */}
                     <div className="flex px-8">
                         {/* Logo */}
-                            <Image src='/cosee_logo.jpg' alt='Cosee Logo' width={150} height={10} className='rounded-2xl'></Image>
+                            <Image src='/logo.png' alt='Ai-gram Logo' width={300} height={10} className='rounded-3xl'></Image>
                         {/* Menu Items */}
                         <div className="nav-list hidden md:flex justify-evenly w-full space-x-6">
                             <Link href='/' className='nav-item my-auto'>GALLERIE</Link>

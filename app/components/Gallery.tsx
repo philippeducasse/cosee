@@ -6,8 +6,7 @@ import { GalleryProps } from '../page';
 
 const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
 
-  // Determine the image width based on the screen size
-  // This is a short term solution, requires a refresh
+
   const imageWidth = typeof window !== 'undefined' && window.innerWidth < 500 ? 150 : 250;
   const imageHeight = typeof window !== 'undefined' && window.innerWidth < 500 ? 200 : 300;
 

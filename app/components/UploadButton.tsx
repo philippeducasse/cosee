@@ -41,13 +41,13 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, 
             setProgress(0);
             setTags({tag1:'', tag2:'', tag3:''})
             console.log('File has been uploaded successfully and added to Firestore');
-          } catch (error) {
-            setError(error);
+          } catch (error:any) {
+            setError(error.Error);
           }
         }
       );
-    } catch (error) {
-      setError(error);
+    } catch (error:any) {
+      setError(error.Error);
     }
   };
   

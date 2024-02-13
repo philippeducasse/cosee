@@ -1,14 +1,9 @@
-// Import the functions you need from the SDKs you need
 import { getFirestore} from "firebase/firestore";
-// storage for images and videos
 import { getStorage } from "firebase/storage";
-
 import { initializeApp } from "firebase/app";
 
-// Your web app's Firebase configuration
 
 const firebaseConfig = {
-
   apiKey: "AIzaSyA-1qJpCt4M04_q6-XUYnJNtoT7sARZ_Zg",
   authDomain: "cosee-fbd40.firebaseapp.com",
   projectId: "cosee-fbd40",

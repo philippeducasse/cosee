@@ -30,6 +30,7 @@ export type UploadButtonProps = {
 export type SelectImageProps = {
   image: any | Blob;
   error: string;
+  generatedImage: string | null;
   setImage: React.Dispatch<React.SetStateAction<File | any>>;
   setError: React.Dispatch<React.SetStateAction<string>>;
 }
@@ -78,5 +79,4 @@ const HomePage = () => {
     </div>
   )
 }
-
 export default HomePage
