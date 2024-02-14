@@ -5,12 +5,19 @@ import ProgressBar from './ProgressBar';
 import { UploadButtonProps, Image } from '../page';
 
 
-const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, setTags, tags, progress, setProgress}) => {
-  const uploadImage = async (image: Image | any) => {
+const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, setTags, tags, progress, setProgress, imageTitle, generatedImage, setGeneratedImage}) => {
+  const uploadImage = async (image: Image | any, generatedImage: string | any) => {
+    console.log(image, generatedImage)
     try {
-      const storageRef = ref(storage, image?.name);
-      const response = await fetch(URL.createObjectURL(image));
-      const blob = await response.blob();
+      let response;
+      if (generatedImage){
+        response= await fetch(generatedImage)
+      }
+      if (image){
+      response = await fetch(URL.createObjectURL(image));
+      }
+      const storageRef = ref(storage, imageTitle);
+      const blob = await response!.blob();
       const uploadTask = uploadBytesResumable(storageRef, blob);
   
       uploadTask.on(
@@ -29,6 +36,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, 
           try {
             const imageUrl = await getDownloadURL(uploadTask.snapshot.ref);
             console.log(imageUrl);
+            console.log({imageTitle})
             console.log({tags})
             // Now that you have the URL, add it to Firestore or perform any required actions
             const imageCollection = {
@@ -38,6 +46,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, 
             };
             await addDoc(collection(db, 'images'), imageCollection);
             setImage(null);
+            setGeneratedImage(null)
             setProgress(0);
             setTags({tag1:'', tag2:'', tag3:''})
             console.log('File has been uploaded successfully and added to Firestore');
@@ -52,7 +61,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, 
   };
   
   const handleSubmit = () => {
-    uploadImage(image)
+    uploadImage(image, generatedImage)
   }
 
   return (

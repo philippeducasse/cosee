@@ -18,13 +18,25 @@ export type Image = {
 
 export type UploadButtonProps = {
   image: Image | null;
-  tags: { tag1: string, tag2: string, tag3: string }
+  generatedImage: string | null;
+
+  tags: { tag1: string, tag2: string, tag3: string };
+  imageTitle: string;
   progress: number;
   setError: React.Dispatch<React.SetStateAction<string | any>>;
   setProgress: React.Dispatch<React.SetStateAction<number>>;
   setImage: React.Dispatch<React.SetStateAction<File | any>>;
   setTags: React.Dispatch<React.SetStateAction<{ tag1: string, tag2: string, tag3: string } | any>>;
+  setGeneratedImage: React.Dispatch<React.SetStateAction<string | any>>;
+  setImageTitle: React.Dispatch<React.SetStateAction<{ imageTitle: string } | any>>;
+}
 
+export type DisplayImageProps = {
+  image: any | Blob;
+  generatedImage: string | null;
+  setImage: React.Dispatch<React.SetStateAction<File | any>>;
+  setGeneratedImage: React.Dispatch<React.SetStateAction<string | any>>;
+  setError: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export type SelectImageProps = {
@@ -39,7 +51,18 @@ export type SelectImageProps = {
 export type TagFormProps = {
   tags: { tag1: string, tag2: string, tag3: string };
   setTags: React.Dispatch<React.SetStateAction<{ tag1: string, tag2: string, tag3: string } | any>>;
+  imageTitle: string;
+  setImageTitle: React.Dispatch<React.SetStateAction<{ imageTitle: string } | any>>;
 }
+
+export type GenerateButtonProps = {
+  generatedImage:string;
+  setGeneratedImage: React.Dispatch<React.SetStateAction<string | any>>;
+  setError: React.Dispatch<React.SetStateAction<string>>;
+  tags: { tag1: string; tag2: string; tag3: string };
+  generating: boolean;
+  setGenerating: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
 export type SearchBarProps = {
   setSearchInput: React.Dispatch<React.SetStateAction<string>>;

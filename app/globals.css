@@ -145,6 +145,34 @@ body{
 @media screen and (max-width: 500px) {
   
 }
+
+/* The flip container */
+.flip-container {
+  perspective: 1000px;
+}
+
+/* Flip the image when hovered */
+.flip-container.hover .flipper {
+  transform: rotateY(180deg);
+}
+
+.flipper {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+
+.back {
+  background-color: #000;
+}
+.front {
+  background-color: #fff;
+}
+
+.back {
+  transform: rotateY(180deg);
+}
+
 /* SPINNER  */
 
 .spinner {

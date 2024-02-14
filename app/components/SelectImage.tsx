@@ -31,40 +31,9 @@ const SelectImage: React.FC<SelectImageProps> = ({ image,generatedImage, error, 
           onChange={fileSelectedHandler}
         />
       </div>
-      <div className="flex justify-center my-5">
-        {image && (
-          <div>
-            <img
-              alt="not found"
-              width={"250px"}
-              src={URL.createObjectURL(image)}
-            />
-            <br />
-            <button
-              className="block w-full text-md text-black
-              mr-4 py-2 px-4 rounded-md
-              border-0 
-              bg-cosee-g
-              hover:bg-green-500"
-              onClick={() => {
-                setImage(null);
-                setError("");
-              }}
-            >
-              Entfernen
-            </button>
-          </div>
-        )}
-
-        {generatedImage && (
-          <div>
-            <img alt="Generated" width={"250px"} src={generatedImage} />
-            {/* No remove button needed for generated image or add if you want to allow users to clear it */}
-          </div>
-        )}
+      
         <div>{error && <p className="text-red-400 font-bold">{error}</p>}</div>
       </div>
-    </div>
   );
 };
 
