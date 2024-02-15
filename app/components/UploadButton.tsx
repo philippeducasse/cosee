@@ -1,5 +1,5 @@
 import { ref, uploadBytesResumable, getDownloadURL, uploadBytes } from 'firebase/storage';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, setDoc, doc } from 'firebase/firestore';
 import { storage, db } from '../firebase/config';
 import ProgressBar from './ProgressBar';
 import { UploadButtonProps, Image } from '../page';
@@ -35,9 +35,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, 
           // Once the upload is complete
           try {
             const imageUrl = await getDownloadURL(uploadTask.snapshot.ref);
-            console.log(imageUrl);
-            console.log({imageTitle})
-            console.log({tags})
+           
             // Now that you have the URL, add it to Firestore or perform any required actions
             const imageCollection = {
               imageUrl: imageUrl,
@@ -45,7 +43,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, 
               tags: tags,
               ai: `${generatedImage ? true : false}`
             };
-            await addDoc(collection(db, 'images'), imageCollection);
+            await setDoc(doc(db, 'images', imageTitle), imageCollection);
             setImage(null);
             setGeneratedImage(null)
             setProgress(0);

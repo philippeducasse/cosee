@@ -3,6 +3,8 @@
 import React, { FC } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { GalleryProps } from '../page';
+import { doc, deleteDoc } from 'firebase/firestore';
+import { db } from '@/app/firebase/config';
 
 const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
   console.log(filteredImages)
@@ -63,17 +65,25 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
           image.target.classList.remove("back");
           image.target.classList.add("front");
           details!.classList.add("hidden");
+          
           setFlippedImages((prev) => ({
             ...prev,
             [index]: false,
           }));
         }};
 
+  const deleteImage = async() => {
+    
+    
+  } 
+
   useEffect(() => {
     { filteredImages.length > 0 && filteredImages.length < 3 ? selectImage(0) : selectImage(2) };
   }, [filteredImages]);
 
-  // console.log(filteredImages)
+
+
+
 
   return (
     <>
@@ -92,6 +102,7 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
               className="flipper relative"
               onClick={(image) => {
                 if (selectedIndex.current !== index) {
+                  console.log(image)
                   selectImage(index);
                 } else {
                   flipImage(image, index);
@@ -113,9 +124,12 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
                 ) : (
                   <img src="/public/human.png" alt="Human Generated" />
                 )}
-                <p className="">{image.tags[0]}</p>
-                <p className="">{image.tags[1]}</p>
-                <p className="">{image.tags[2]}</p>
+                <div>
+                  <ul className="">{image.tags[0]}</ul>
+                  <ul className="">{image.tags[1]}</ul>
+                  <ul className="">{image.tags[2]}</ul>
+                </div>
+                <button className='delete-btn'onClick={async() => await deleteDoc(doc(db,'images', image.title))}>X</button>
               </div>
             </div>
           ))}
