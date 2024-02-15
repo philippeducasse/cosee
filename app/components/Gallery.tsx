@@ -83,9 +83,8 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
 
         {!isLoading &&
           filteredImages.map((image: any, index: number) => (
-            <div className={`flipper`}>
+            <div key={image.imageUrl} className={`flipper`}>
               <div
-                key={image.imageUrl}
                 className="image-gallery front w-full sm:w-3/4 sm:h-auto flex duration-700 ease-out origin-center rounded-lg bg-no-repeat bg-white bg-contain bg-center mb-12 cursor-pointer"
                 onClick={(image) => {
                   if (selectedIndex.current !== index) {
@@ -101,7 +100,7 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
                   backgroundImage: `url(${image.imageUrl})`,
                 }}
               />
-              <p key={image.imageUrl} className="details hidden">{image.tags[0]}</p>
+              <p  className="details hidden">{image.tags[0]}</p>
             </div>
           ))}
       </div>
