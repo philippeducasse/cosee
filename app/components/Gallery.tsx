@@ -101,7 +101,7 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
                   backgroundImage: `url(${image.imageUrl})`,
                 }}
               />
-              <p className="details hidden">{image.tags[0]}</p>
+              <p key={image.imageUrl} className="details hidden">{image.tags[0]}</p>
             </div>
           ))}
       </div>
