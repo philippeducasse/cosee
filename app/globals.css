@@ -162,6 +162,12 @@ body{
   background-image: none!important;
 }
 
+.details {
+  position:absolute;
+  top:150px;
+  left: 50px;
+
+}
 
 /* SPINNER  */
 

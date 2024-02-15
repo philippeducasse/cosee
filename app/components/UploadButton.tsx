@@ -43,6 +43,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, 
               imageUrl: imageUrl,
               createdAt: new Date(), 
               tags: tags,
+              ai: `${generatedImage ? true : false}`
             };
             await addDoc(collection(db, 'images'), imageCollection);
             setImage(null);

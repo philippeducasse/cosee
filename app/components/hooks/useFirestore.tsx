@@ -26,7 +26,8 @@ const useFirestore = (collectionName: string) => {
                         const createdAt = doc.data().createdAt
                         // convert tags into an array, makes it easier to filter
                         const tags = [doc.data().tags.tag1, doc.data().tags.tag2, doc.data().tags.tag3]
-                        images.push({imageUrl, createdAt, tags});
+                        const ai = doc.data().ai
+                        images.push({imageUrl, createdAt, tags, ai});
                         
                     });
                     console.log(images);

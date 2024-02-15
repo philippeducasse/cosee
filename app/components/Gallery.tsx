@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import { GalleryProps } from '../page';
 
 const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
+  console.log(filteredImages)
   const [flippedImages, setFlippedImages] = useState<{ [key: number]: boolean }>({});
   const imageWidth = typeof window !== 'undefined' && window.innerWidth < 500 ? 150 : 250;
   const imageHeight = typeof window !== 'undefined' && window.innerWidth < 500 ? 200 : 300;
@@ -36,6 +37,9 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
     Array.from(children).forEach((container: Element) => {
       const imageElement = container.querySelector('.image-gallery')
       imageElement!.classList.remove('back');
+      const detailsElement = container.querySelector('.details')
+      detailsElement!.classList.add('hidden');
+
     });
 
     setFlippedImages({})
@@ -83,16 +87,19 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
 
         {!isLoading &&
           filteredImages.map((image: any, index: number) => (
-            <div key={image.imageUrl} className={`flipper`}>
+            <div
+              key={image.imageUrl}
+              className="flipper relative"
+              onClick={(image) => {
+                if (selectedIndex.current !== index) {
+                  selectImage(index);
+                } else {
+                  flipImage(image, index);
+                }
+              }}
+            >
               <div
                 className="image-gallery front w-full sm:w-3/4 sm:h-auto flex duration-700 ease-out origin-center rounded-lg bg-no-repeat bg-white bg-contain bg-center mb-12 cursor-pointer"
-                onClick={(image) => {
-                  if (selectedIndex.current !== index) {
-                    selectImage(index);
-                  } else {
-                    flipImage(image, index);
-                  }
-                }}
                 style={{
                   width: imageWidth,
                   height: imageHeight,
@@ -100,7 +107,16 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
                   backgroundImage: `url(${image.imageUrl})`,
                 }}
               />
-              <p  className="details hidden">{image.tags[0]}</p>
+              <div className="details hidden absolute">
+                {image.ai ? (
+                  <img src="/robot.png" width={100} alt="AI Generated" />
+                ) : (
+                  <img src="/public/human.png" alt="Human Generated" />
+                )}
+                <p className="">{image.tags[0]}</p>
+                <p className="">{image.tags[1]}</p>
+                <p className="">{image.tags[2]}</p>
+              </div>
             </div>
           ))}
       </div>
