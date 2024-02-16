@@ -93,7 +93,7 @@ const HomePage = () => {
   }, [docs, searchInput]);
 
   return (
-    <div className='w-screen h-screen flex flex-col items-center overflow-x-clip'>
+    <div className='w-screen flex flex-col items-center overflow-x-clip'>
       <Navbar />
       <div className='mt-12 pb-20'>
         <SearchBar setSearchInput = {setSearchInput}/>

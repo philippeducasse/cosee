@@ -38,14 +38,14 @@ const UploadImage = () => {
           imageTitle={imageTitle}
           setImageTitle={setImageTitle}
         />
-        <DisplayImage
-          image={image}
-          generatedImage={generatedImage}
-          setGeneratedImage={setGeneratedImage}
-          setImage={setImage}
-          setError={setError}
-        />
       </div>
+      <DisplayImage
+        image={image}
+        generatedImage={generatedImage}
+        setGeneratedImage={setGeneratedImage}
+        setImage={setImage}
+        setError={setError}
+      />
       <UploadButton
         image={image}
         generatedImage={generatedImage}
@@ -68,8 +68,11 @@ const UploadImage = () => {
         setGenerating={setGenerating}
       />
       {generating && (
-          <div className='spinner flex mx-auto justify-center'></div>
-        )}
+        <div className='flex mx-auto justify-center'>
+          <p>Generating image...</p>
+          <div className="spinner flex mx-auto justify-center"></div>
+        </div>
+      )}
     </div>
   );
 }

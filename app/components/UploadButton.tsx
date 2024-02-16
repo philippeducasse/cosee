@@ -1,5 +1,5 @@
 import { ref, uploadBytesResumable, getDownloadURL, uploadBytes } from 'firebase/storage';
-import { collection, setDoc, doc } from 'firebase/firestore';
+import { collection, setDoc, doc, addDoc } from 'firebase/firestore';
 import { storage, db } from '../firebase/config';
 import ProgressBar from './ProgressBar';
 import { UploadButtonProps, Image } from '../page';
@@ -10,15 +10,22 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, 
     console.log(image, generatedImage)
     try {
       let response;
+      let storageRef;
       if (generatedImage){
         response= await fetch(generatedImage)
+        console.log(generatedImage)
+        console.log(typeof generatedImage)
+        console.log(generatedImage.split('/')[4])
+        storageRef = ref(storage, generatedImage.split('/')[4]);
       }
       if (image){
       response = await fetch(URL.createObjectURL(image));
+      console.log(image.name)
+      console.log(typeof image.name)
+      storageRef = ref(storage, image.name);
       }
-      const storageRef = ref(storage, imageTitle);
       const blob = await response!.blob();
-      const uploadTask = uploadBytesResumable(storageRef, blob);
+      const uploadTask = uploadBytesResumable(storageRef!, blob);
   
       uploadTask.on(
         'state_changed',
@@ -43,7 +50,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, 
               tags: tags,
               ai: `${generatedImage ? true : false}`
             };
-            await setDoc(doc(db, 'images', imageTitle), imageCollection);
+            await addDoc(collection(db, 'images'), imageCollection);
             setImage(null);
             setGeneratedImage(null)
             setProgress(0);

@@ -134,9 +134,7 @@ body{
 .search-input:focus-visible{
   border: 3px solid #4eb147!important ;
 }
-.image-gallery{
-  margin: 6em 0;
-}
+
 
 .grid-item img{
   margin: 20px auto;
@@ -147,28 +145,40 @@ body{
 }
 
 /* The flip container */
-.flip-container {
-  perspective: 1000px;
+.container{
 }
 
 
-.flipper {
-  transition: 0.6s;
+.card {
   transform-style: preserve-3d;
+  transition: transform 0.6s ease;
 }
 
+.flip{
+  transform: scale(1.5) rotateY(180deg)!important;
+}
+
+.front{
+  backface-visibility: hidden;
+  box-shadow: 10px 10px 20px -2px rgba(0,0,0,0.85);
+  border-bottom: 50px solid white;
+  border-top: 50px solid white;
+
+
+}
 .back {
   transform: rotateY(180deg);
   background-image: none!important;
-}
-.front{
+  backface-visibility: hidden;
+  pointer-events: none;
+  border-bottom: 50px solid white;
+  border-top: 50px solid white;
 }
 .details {
-  position:absolute;
-  top:150px;
-  left: 50px;
-  pointer-events: none;
+  left:1rem;
+  top: 1rem;
 }
+
 .delete-btn{
   pointer-events: auto;
 }
@@ -188,7 +198,7 @@ body{
   }
 }
 
-@keyframes detailFadeIn {
+/* @keyframes detailFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
@@ -197,4 +207,3 @@ body{
 .flipper.back .details {
   animation: detailFadeIn 0.3s ease forwards;
   animation-delay: 2s; /* Sync with the second half of the flip */
-}
