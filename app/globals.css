@@ -98,9 +98,10 @@ body{
 .tag-input{
   border: 2px solid #4eb147;
   border-radius: 5px;
-  width: 50%;
+  min-width: 200px;
   margin: 1em 0;
   text-align: center;
+  padding: 5px 0;
 
 }
 

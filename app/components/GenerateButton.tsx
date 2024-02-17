@@ -59,8 +59,12 @@ const GenerateButton: React.FC<GenerateButtonProps> = ({setGeneratedImage, setEr
 
   // This function should be outside of `generateImage`
   const handleSubmit = () => {
+    if (!tags.tag1 || !tags.tag2 || !tags.tag3){
+      setError('Please give your image three tags!')
+    } else {
       generateImage();
       setGenerating(true);
+    }
   };
 
   return (

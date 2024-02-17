@@ -67,13 +67,21 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, 
   };
   
   const handleSubmit = () => {
-    uploadImage(image, generatedImage)
+    if (!tags.tag1 || !tags.tag2 || !tags.tag3){
+      setError('Please give your image three tags!')
+    }
+    else if (!image && !generatedImage){
+      setError('Please select or generate an image!')
+    } else{
+      uploadImage(image, generatedImage)
+      setError(null)
+    }
   }
 
   return (
     <div className='flex flex-col justify-center '>
       <button className= 'py-2 px-6 lg:w-1/5 self-center my-4 bg-cosee-y rounded-md hover:bg-opacity-70 font-bold'
-      onClick={handleSubmit}>Hochladen</button>
+      onClick={handleSubmit}>Upload</button>
       {image && <ProgressBar progress = {progress}/>}
     </div>
   );

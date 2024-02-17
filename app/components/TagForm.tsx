@@ -22,8 +22,8 @@ const TagForm: React.FC<TagFormProps> = ({tags, setTags, imageTitle, setImageTit
     console.log(tags)
   }
   return (
-    <div className=' lg:w-2/5 my-12 mx-auto'>
-      <h3 className="form-title text-2xl mb-4">Give tags to your image</h3>
+    <div className=''>
+      <h3 className="form-title text-2xl my-4">Give tags to your image</h3>
       <form onSubmit={handleSubmit} className='flex flex-col'>
         <input name= 'tag1' type= 'text' placeholder='First tag' className='tag-input' value={tags.tag1} onChange={handleTagChange}/>
         <input name= 'tag2' type= 'text' placeholder='Second tag' className=' tag-input' value={tags.tag2} onChange={handleTagChange}/>

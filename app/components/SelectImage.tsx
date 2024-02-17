@@ -20,7 +20,6 @@ const SelectImage: React.FC<SelectImageProps> = ({ image,generatedImage, error, 
   return (
     <div className="w-3/5 mx-auto flex flex-col">
       <div className="w-full h-20 mt-12 text-center content-center">
-        <h1 className="text-center text-2xl">Bild hochladen </h1>
         <input
           className="w-50 mt-4 text-sm text-slate-500
         file:mr-4 file:py-2 file:px-4 file:rounded-md
@@ -32,7 +31,7 @@ const SelectImage: React.FC<SelectImageProps> = ({ image,generatedImage, error, 
         />
       </div>
       
-        <div>{error && <p className="text-red-400 font-bold">{error}</p>}</div>
+       
       </div>
   );
 };

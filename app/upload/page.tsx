@@ -24,14 +24,26 @@ const UploadImage = () => {
   return (
     <div className="pb-10">
       <Navbar />
-      <div className="flex flex-col lg:flex-row justify-center align-center lg:mx-32 bg-white bg-opacity-70 ">
-        <SelectImage
-          image={image}
-          generatedImage={generatedImage}
-          setImage={setImage}
-          setError={setError}
-          error={error}
-        />
+      
+        <h1 className="text-center text-4xl my-6">Upload an image</h1>
+      <div className="flex flex-col lg:flex-row items-center justify-evenly lg:mx-32 bg-white bg-opacity-70 ">
+
+        <div className="">
+          <SelectImage
+            image={image}
+            generatedImage={generatedImage}
+            setImage={setImage}
+            setError={setError}
+            error={error}
+          />
+          <DisplayImage
+            image={image}
+            generatedImage={generatedImage}
+            setGeneratedImage={setGeneratedImage}
+            setImage={setImage}
+            setError={setError}
+          />
+        </div>
         <TagForm
           tags={tags}
           setTags={setTags}
@@ -39,13 +51,8 @@ const UploadImage = () => {
           setImageTitle={setImageTitle}
         />
       </div>
-      <DisplayImage
-        image={image}
-        generatedImage={generatedImage}
-        setGeneratedImage={setGeneratedImage}
-        setImage={setImage}
-        setError={setError}
-      />
+      <div>{error && <p className="block text-red-400 font-bold text-center text-xl bg-white bg-opacity-70 mb-3">{error}</p>}</div>
+
       <UploadButton
         image={image}
         generatedImage={generatedImage}
@@ -59,17 +66,20 @@ const UploadImage = () => {
         imageTitle={imageTitle}
         setImageTitle={setImageTitle}
       />
-      <GenerateButton
-        generatedImage={generatedImage}
-        setGeneratedImage={setGeneratedImage}
-        tags={tags}
-        setError={setError}
-        generating={generating}
-        setGenerating={setGenerating}
-      />
+
+      {!image && (
+        <GenerateButton
+          generatedImage={generatedImage}
+          setGeneratedImage={setGeneratedImage}
+          tags={tags}
+          setError={setError}
+          generating={generating}
+          setGenerating={setGenerating}
+        />
+      )}
       {generating && (
-        <div className='flex mx-auto justify-center'>
-          <p>Generating image...</p>
+        <div className="flex mx-auto justify-center">
+          <p className='text-center text-xl'>Generating image...</p>
           <div className="spinner flex mx-auto justify-center"></div>
         </div>
       )}
