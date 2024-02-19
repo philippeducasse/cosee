@@ -79,7 +79,7 @@ const UploadImage = () => {
       )}
       {generating && (
         <div className="flex mx-auto justify-center">
-          <p className='text-center text-xl'>Generating image...</p>
+          <p className='text-center text-xl w-full mx-auto'>Generating image...</p>
           <div className="spinner flex mx-auto justify-center"></div>
         </div>
       )}
