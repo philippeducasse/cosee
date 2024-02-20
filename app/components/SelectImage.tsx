@@ -13,7 +13,7 @@ const SelectImage: React.FC<SelectImageProps> = ({ image,generatedImage, error, 
       setError('');
     } else {
       setImage(null);
-      setError('Bitte wähle eine Bilddatei');
+      setError('Please select an image');
     }
   };
 
@@ -24,8 +24,8 @@ const SelectImage: React.FC<SelectImageProps> = ({ image,generatedImage, error, 
           className="w-50 mt-4 text-sm text-slate-500
         file:mr-4 file:py-2 file:px-4 file:rounded-md
         file:border-0 file:text-sm file:font-semibold
-        file:bg-green-50 file:text-green-700
-        hover:file:bg-green-100"
+        file:bg-cyan-50 file:text-blue-700
+        hover:file:bg-blue-100"
           type="file"
           onChange={fileSelectedHandler}
         />

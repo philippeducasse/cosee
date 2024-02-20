@@ -9,7 +9,7 @@ const roboto = Roboto({
 
 export const metadata: Metadata = {
   title: 'Cosee Bild App',
-  description: 'Lade deine Bildern hoch!',
+  description: 'Can you tell which image is AI generated?',
 }
 
 export default function RootLayout({

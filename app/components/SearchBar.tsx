@@ -15,7 +15,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ setSearchInput }) => {
             <input
                 type='text'
                 onChange={handleInput}
-                placeholder='Bilder durchsuchen'
+                placeholder='Search images'
                 className='search-input focus:outline-none focus:border:teal focus:ring-0' />
         </div>
     )

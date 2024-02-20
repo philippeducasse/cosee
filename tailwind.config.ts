@@ -16,8 +16,8 @@ const config: Config = {
     extend:
     { // custom colors
       colors: {
-        'cosee-y': '#d4d800',
-        'cosee-g': '#4eb147',
+        'cosee-t': '#02c2cc',
+        'cosee-b': '#435cea',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

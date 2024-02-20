@@ -69,7 +69,7 @@ const GenerateButton: React.FC<GenerateButtonProps> = ({setGeneratedImage, setEr
 
   return (
     <div className='flex flex-col justify-center'>
-      <button className='py-2 px-6 lg:w-1/5 self-center my-4 bg-cosee-y rounded-md hover:bg-opacity-70 font-bold'
+      <button className='py-3 px-6  self-center my-4 bg-cosee-t text-white text-xl rounded-md hover:bg-opacity-90 font-bold'
         onClick={handleSubmit}>Generate</button>
     </div>
   );

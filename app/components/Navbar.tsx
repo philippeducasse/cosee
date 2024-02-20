@@ -14,7 +14,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <section className='w-screen p-6 mx-auto bg-gradient-to-r from-cosee-y to-cosee-g'>
+            <section className='w-screen p-6 mx-auto bg-gradient-to-r from-cosee-t to-cosee-b'>
                 {/* Navbar */}
                 <nav className="relative ">
                     {/* Flex Container */}
@@ -23,16 +23,16 @@ const Navbar = () => {
                             <Image src='/logo.png' alt='Ai-gram Logo' width={300} height={10} className='rounded-3xl'></Image>
                         {/* Menu Items */}
                         <div className="nav-list hidden md:flex justify-evenly w-full space-x-6">
-                            <Link href='/' className='nav-item my-auto'>GALLERIE</Link>
-                            <Link href='/about' className='nav-item my-auto'>ÜBER MICH</Link>
-                            <Link href='/cosee' className='nav-item my-auto'>ÜBER COSEE</Link>
+                            <Link href='/how' className='nav-item my-auto'>How it works</Link>
+                            <Link href='/' className='nav-item my-auto'>Gallery</Link>
+                            <Link href='/about' className='nav-item my-auto'>About me</Link>
 
                         </div>
                         {/* button */}
                         <Link href="/upload"
-                         className="cta hidden md:block p-2 px-6 pt-2 text-xs bg-cosee-y duration-300 rounded-full w-100 text-center"
+                         className="cta hidden md:block p-2 px-6 pt-2 duration-300 rounded-full w-100 text-center"
                          >
-                            Bild hochladen
+                            Generate image
                          </Link>
 
                         {/* Hamburger Icon */}
@@ -49,9 +49,10 @@ const Navbar = () => {
                     {/* Mobile Menu */}
                     <div className="md:hidden">
                         <div id="menu" className={`absolute flex-col m-2 items-center bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md ${isOpen ? 'open flex' : 'hidden'}`}>
-                            <Link href='/' className='nav-item py-1'>GALERIE</Link>
-                            <Link href='/about' className='nav-item py-1'>ÜBER MICH</Link>
-                            <Link href='/cosee' className='nav-item py-1'>ÜBER COSEE</Link>
+                            <Link href='/' className='nav-item py-1'>Gallery</Link>
+                            <Link href='/how' className='nav-item py-1'>How it works</Link>
+                            <Link href='/about' className='nav-item py-1'>About Me</Link>
+                            <Link href="/upload" className="nav-item py-1">Generate image</Link>
                         </div>
                     </div>
 

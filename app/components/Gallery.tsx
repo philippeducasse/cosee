@@ -9,8 +9,8 @@ import { db } from '@/app/firebase/config';
 const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
   console.log(filteredImages)
   const [flippedImages, setFlippedImages] = useState<{ [key: number]: boolean }>({});
-  const imageWidth = typeof window !== 'undefined' && window.innerWidth < 500 ? 150 : 350;
-  const imageHeight = typeof window !== 'undefined' && window.innerWidth < 500 ? 200 : 400;
+  const imageWidth = typeof window !== 'undefined' && window.innerWidth < 500 ? 150 : 250;
+  const imageHeight = typeof window !== 'undefined' && window.innerWidth < 500 ? 200 : 300;
 
   // Instance variable to save current selected photo
   const selectedIndex = useRef(-1);
@@ -104,20 +104,21 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
                 }}
               />
               {/* BACK */}
-              <div className="back absolute rounded-lg bg-no-repeat bg-white bg-center cursor-pointer" style={{
+              <div className="back absolute  rounded-lg bg-no-repeat bg-white bg-center cursor-pointer p-2" style={{
                     width: imageWidth,
                     height: imageHeight,
                   }}>
                 <div 
-                  className="details flex items-center justify-center flex-col"
+                  className="details flex items-center justify-center flex-col mx-auto h-full"
                 >
                   {image.ai == 'true'? (
-                    <img src="/robot.png" width={150} alt="AI Generated" />
+                    <img src="/robot.png" width={150} alt="AI Generated" className=''/>
                   ) : (
-                    <img src="/human.png" width={150} alt="Human Generated" />
+                    <img src="/camera.png" width={150} alt="Human Generated" />
                   )}
                   <div>
-                    <p className=""> Tags: {image.tags[0]},{image.tags[1]},{image.tags[2]}</p>
+                    <p className='text-lg text-center'>Tags: </p>
+                    <p className="tags text-sm text-center py-2"> {image.tags[0]}, {image.tags[1]}, {image.tags[2]}</p>
                   </div>
                   <button
                     className="delete-btn"
