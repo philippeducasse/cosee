@@ -78,7 +78,6 @@ const HomePage = () => {
   const [searchInput, setSearchInput] = useState('');
   const { docs, isLoading } = useFirestore('images');
   const [filteredImages, setFilteredImages] = useState<any>([]);
-  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     if (searchInput) {
@@ -93,37 +92,17 @@ const HomePage = () => {
     }
   }, [docs, searchInput]);
 
-  useEffect(() => {
-    if (!isLoading) {
-      // Show the popup message 3 seconds after images have loaded
-      setShowPopup(true)
-      const timer = setTimeout(() => {
-        setShowPopup(false);
-      }, 10000);
-
-      // Cleanup to clear the timeout if the component unmounts
-      return () => clearTimeout(timer);
-    } else {
-      // Optionally, reset popup visibility when starting to load new images
-      setShowPopup(false);
-    }
-  }, [isLoading]);
-
   return (
-    <div className='w-screen flex flex-col items-center overflow-x-clip'>
+    <div className="w-screen flex flex-col items-center overflow-x-clip">
       <Navbar />
-      <div className='mt-12 pb-20 relative'>
-        <div className="popup-box">
-          {showPopup && (
-            <p className={`${showPopup ? 'popup' : 'popup-hidden '}`}>
-            Click on the selected image to find out if it was AI generated!
-          </p>
-        )}
-        </div>
-        <SearchBar setSearchInput = {setSearchInput}/>
-        <Gallery filteredImages={filteredImages} isLoading={isLoading}/>
+      <div className="mt-12 pb-20 relative">
+        <p className="popup">
+          Click on the selected image to find out if it was AI generated!
+        </p>
+        <SearchBar setSearchInput={setSearchInput} />
+        <Gallery filteredImages={filteredImages} isLoading={isLoading} />
       </div>
     </div>
-  )
+  );
 }
 export default HomePage
