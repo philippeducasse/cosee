@@ -113,11 +113,13 @@ const HomePage = () => {
     <div className='w-screen flex flex-col items-center overflow-x-clip'>
       <Navbar />
       <div className='mt-12 pb-20 relative'>
+        <div className="popup-box">
           {showPopup && (
-          <p className={`hidden ${showPopup ? 'popup' : ''}`}>
+            <p className={`${showPopup ? 'popup' : 'popup-hidden '}`}>
             Click on the selected image to find out if it was AI generated!
           </p>
         )}
+        </div>
         <SearchBar setSearchInput = {setSearchInput}/>
         <Gallery filteredImages={filteredImages} isLoading={isLoading}/>
       </div>
