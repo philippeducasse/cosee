@@ -8,7 +8,7 @@ const roboto = Roboto({
 })
 
 export const metadata: Metadata = {
-  title: 'Cosee Bild App',
+  title: 'Ai-Gram',
   description: 'Can you tell which image is AI generated?',
 }
 

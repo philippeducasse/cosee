@@ -52,13 +52,7 @@ const UploadImage = () => {
             imageTitle={imageTitle}
             setImageTitle={setImageTitle}
           />
-          <div>
-            {error && (
-              <p className="block text-red-400 font-bold text-center text-xl bg-white bg-opacity-70 mb-3">
-                {error}
-              </p>
-            )}
-          </div>
+          
               <div className="flex flex-col h-full items-center my-auto">
           <UploadButton
             image={image}
@@ -95,6 +89,13 @@ const UploadImage = () => {
           </div>
         </div>
       </div>
+      <div>
+            {error && (
+              <p className="block text-red-400 font-bold text-center w-full text-xl bg-white bg-opacity-70 mb-3">
+                {error}
+              </p>
+            )}
+          </div>
     </div>
   );
 }

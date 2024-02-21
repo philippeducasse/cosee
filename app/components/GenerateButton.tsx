@@ -22,6 +22,7 @@ const GenerateButton: React.FC<GenerateButtonProps> = ({setGeneratedImage, setEr
 
   const generateImage = async () => {
     const tagsString = Object.values(tags).join(' ')
+    console.log(process.env.API_KEY)
     const options = {
       method: 'POST',
       headers: { accept: 'application/json', 'content-type': 'application/json', 'Authorization': `Bearer ${process.env.API_KEY}`},
