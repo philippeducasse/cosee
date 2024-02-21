@@ -7,6 +7,7 @@ import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import GenerateButton from '../components/GenerateButton';
 import DisplayImage from '../components/DisplayImage';
+import ProgressBar from '../components/ProgressBar';
 
 const UploadImage = () => {
   const [image, setImage] = useState(null);
@@ -22,11 +23,11 @@ const UploadImage = () => {
   const [error, setError] = useState("");
 
   return (
-    <div className="pb-10">
+    <div className="">
       <Navbar />
 
       <div className="flex flex-col items-center justify-evenly lg:mx-32 bg-white bg-opacity-70 pb-8">
-        <h1 className="text-center text-4xl mt-12">Upload an image</h1>
+        <h1 className="text-center text-lg lg:text-4xl mt-12 mx-4">Generate an image or upload it from your files</h1>
 
         <div className="">
           <SelectImage
@@ -44,7 +45,7 @@ const UploadImage = () => {
             setError={setError}
           />
         </div>
-        <div className="flex justify-evenly w-full">
+        <div className="flex  flex-col md:flex-row justify-evenly w-full">
           <TagForm
             tags={tags}
             setTags={setTags}
@@ -84,11 +85,11 @@ const UploadImage = () => {
             />
           )}
           {generating && (
-            <div className="flex mx-auto justify-center">
+            <div className="">
               <p className="text-center text-xl w-full mx-auto">
                 Generating image...
               </p>
-              <div className="spinner flex mx-auto justify-center"></div>
+              <div className="spinner flex mx-auto justify-center mt-6"></div>
             </div>
           )}
           </div>

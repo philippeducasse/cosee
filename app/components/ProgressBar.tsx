@@ -6,7 +6,7 @@ type ProgressBarProps = {
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {
 
-  const progressBarClasses = `progress-bar ${progress === 100 ? 'hide' : ''}`;
+  const progressBarClasses = `progress-bar ${progress === 100 ? 'show' : ''}`;
   const successUpload = ` text-2xl self-center ${progress === 100 ? 'show' : 'hide'}`;
 
   return (

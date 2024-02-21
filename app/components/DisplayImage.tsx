@@ -22,9 +22,9 @@ const DisplayImage: React.FC<DisplayImageProps>  = ({setImage, image, generatedI
       )}
       {(generatedImage ||image )&& (
           <button
-            className="block w-35 text-md text-black
+            className="block w-35 text-md text-white text-lg font-bold
                          py-2 px-4 rounded-md my-2
-                        border-0 bg-cosee-g hover:bg-green-500"
+                        border-0 bg-cosee-t hover:opacity-90"
             onClick={() => {
               setImage(null);
               setGeneratedImage(null);

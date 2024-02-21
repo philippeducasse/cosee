@@ -18,9 +18,11 @@ const Navbar = () => {
                 {/* Navbar */}
                 <nav className="relative ">
                     {/* Flex Container */}
-                    <div className="flex px-8">
+                    <div className="flex px-8 items-center">
                         {/* Logo */}
-                            <Image src='/logo.png' alt='Ai-gram Logo' width={300} height={10} className='rounded-3xl'></Image>
+                            <Link href="/">
+                                <Image src='/logo.png' alt='Ai-gram Logo' width={200} height={30} className='rounded-3xl md:w-full w-1/1.5'></Image>
+                            </Link>
                         {/* Menu Items */}
                         <div className="nav-list hidden md:flex justify-evenly w-full space-x-6">
                             <Link href='/how' className='nav-item my-auto'>How it works</Link>

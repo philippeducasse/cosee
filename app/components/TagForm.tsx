@@ -22,13 +22,12 @@ const TagForm: React.FC<TagFormProps> = ({tags, setTags, imageTitle, setImageTit
     console.log(tags)
   }
   return (
-    <div className=''>
+    <div className='flex items-center flex-col'>
       <h3 className="form-title text-2xl my-4">Give tags to your image</h3>
-      <form onSubmit={handleSubmit} className='flex flex-col'>
+      <form onSubmit={handleSubmit} className='flex flex-col w-2/3 md:w-full'>
         <input name= 'tag1' type= 'text' placeholder='First tag' className='tag-input' value={tags.tag1} onChange={handleTagChange}/>
         <input name= 'tag2' type= 'text' placeholder='Second tag' className=' tag-input' value={tags.tag2} onChange={handleTagChange}/>
         <input name= 'tag3' type= 'text' placeholder='Third tag' className='tag-input' value={tags.tag3} onChange={handleTagChange}/>
-        <input name='imageTitle' type='text' placeholder='Give your image a title' className="tag-input" value={imageTitle} onChange={handleTitleChange}></input>
       </form>
     </div>
   )

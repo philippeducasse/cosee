@@ -18,10 +18,10 @@ const SelectImage: React.FC<SelectImageProps> = ({ image,generatedImage, error, 
   };
 
   return (
-    <div className="w-3/5 mx-auto flex flex-col">
+    <div className="w-3/5 mx-auto ">
       <div className="w-full h-20 mt-12 text-center content-center">
         <input
-          className="w-50 mt-4 text-sm text-slate-500
+          className="w-50 max-w-5 mt-4 text-sm text-slate-500
         file:mr-4 file:py-2 file:px-4 file:rounded-md
         file:border-0 file:text-sm file:font-semibold
         file:bg-cyan-50 file:text-blue-700
