@@ -22,10 +22,9 @@ const GenerateButton: React.FC<GenerateButtonProps> = ({setGeneratedImage, setEr
 
   const generateImage = async () => {
     const tagsString = Object.values(tags).join(' ')
-    console.log(process.env.API_KEY)
     const options = {
       method: 'POST',
-      headers: { accept: 'application/json', 'content-type': 'application/json', 'Authorization': `Bearer ${process.env.API_KEY}`},
+      headers: { accept: 'application/json', 'content-type': 'application/json', 'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiMmY3ZDQ3MmEtMGQxNC00YzliLWJjNTYtNzE2ODNkY2M1YThlIiwidHlwZSI6ImFwaV90b2tlbiJ9.ECYgGswnWvSovicXNO_e8Rl53Qt0LwdkPAqw3W89RsE' },
       body: JSON.stringify({
         providers:'deepai',
         text: tagsString,
