@@ -1,11 +1,11 @@
 # AI-Gram  App
-(~formerly  Cossee~)
+(Formerly  Cossee)
 
 <img src="/public/screenshot.png">
 
 ## Live Site
 
-<a href="am-i-ai.vercel.app" target="_blank">
+<a href="https://am-i-ai.vercel.app/" target="_blank">am-i-ai.vercel.app</a>
 
 ## About the App
 
