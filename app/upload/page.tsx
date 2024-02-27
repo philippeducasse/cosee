@@ -34,13 +34,13 @@ const UploadImage = () => {
           </h3>
           <p className="text-md lg:text-2xl px-4">
             To generate an image using AI, first choose three tags, and then
-            press "generate". Once the image has generated, click "upload". Your
+            press &quot;generate&quot;. Once the image has generated, click &quot;upload&quot;. Your
             Image will then appear in the gallery!
           </p>
           <p className="text-md lg:text-2xl mt-8 px-4">
             You can also just upload your own image from your device. For that,
-            click the "browse" button and choose a JPG or PNG image. Then give
-            your image three tags, and then press "upload". Your Image will then
+            click the &quot;browse&quot; button and choose a JPG or PNG image. Then give
+            your image three tags, and then press &quot;upload&quot;. Your Image will then
             appear in the gallery!
           </p>
         </div>
