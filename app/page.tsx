@@ -21,14 +21,13 @@ export type UploadButtonProps = {
   generatedImage: string | null;
 
   tags: { tag1: string, tag2: string, tag3: string };
-  imageTitle: string;
   progress: number;
   setError: React.Dispatch<React.SetStateAction<string | any>>;
   setProgress: React.Dispatch<React.SetStateAction<number>>;
   setImage: React.Dispatch<React.SetStateAction<File | any>>;
   setTags: React.Dispatch<React.SetStateAction<{ tag1: string, tag2: string, tag3: string } | any>>;
   setGeneratedImage: React.Dispatch<React.SetStateAction<string | any>>;
-  setImageTitle: React.Dispatch<React.SetStateAction<{ imageTitle: string } | any>>;
+  setUploadSuccess: React.Dispatch<React.SetStateAction< boolean >>;
 }
 
 export type DisplayImageProps = {
@@ -51,8 +50,7 @@ export type SelectImageProps = {
 export type TagFormProps = {
   tags: { tag1: string, tag2: string, tag3: string };
   setTags: React.Dispatch<React.SetStateAction<{ tag1: string, tag2: string, tag3: string } | any>>;
-  imageTitle: string;
-  setImageTitle: React.Dispatch<React.SetStateAction<{ imageTitle: string } | any>>;
+  setUploadSuccess: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export type GenerateButtonProps = {
@@ -95,10 +93,7 @@ const HomePage = () => {
   return (
     <div className="w-screen flex flex-col items-center overflow-x-clip">
       <Navbar />
-      <div className="mt-12 pb-20 relative">
-        <p className="popup">
-          Click on the selected image to find out if it was AI generated!
-        </p>
+      <div className="mt-12 pb-20">
         <SearchBar setSearchInput={setSearchInput} />
         <Gallery filteredImages={filteredImages} isLoading={isLoading} />
       </div>

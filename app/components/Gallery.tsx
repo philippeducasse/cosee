@@ -113,13 +113,13 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
                   className="details flex items-center justify-center flex-col mx-auto h-full"
                 >
                   {image.ai == 'true'? (
-                    <Image src="/robot.png" height={150} width={150} alt="AI Generated" className=''/>
+                    <Image src="/robot.png" height={100} width={100} alt="AI Generated" className=''/>
                   ) : (
-                    <Image src="/camera.png" height={150} width={150} alt="Human Generated" />
+                    <Image src="/camera.png" height={100} width={100} alt="Human Generated" />
                   )}
                   <div>
                     <p className='text-lg text-center'>Tags: </p>
-                    <p className="tags text-sm text-center py-2"> {image.tags[0]}, {image.tags[1]}, {image.tags[2]}</p>
+                    <p className="tags text-xs md:text-sm text-center py-2"> {image.tags[0]}, {image.tags[1]}, {image.tags[2]}</p>
                   </div>
                   {/* <button
                     className="delete-btn"

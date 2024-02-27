@@ -6,15 +6,12 @@ import { collection, addDoc } from 'firebase/firestore';
 import { TagFormProps } from "../page";
 
 
-const TagForm: React.FC<TagFormProps> = ({tags, setTags, imageTitle, setImageTitle}) => { 
-
-  const handleTitleChange = (e: any) => {
-    setImageTitle(e.target.value);
-  }
+const TagForm: React.FC<TagFormProps> = ({tags, setTags, setUploadSuccess}) => { 
 
   const handleTagChange = (e: any) => {
     const {name, value} = e.target
     setTags({...tags, [name]: value});
+    setUploadSuccess(false)
   }
   const handleSubmit = async (e: any) => {
     e.preventDefault();

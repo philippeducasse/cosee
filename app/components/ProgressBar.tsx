@@ -12,7 +12,6 @@ const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {
   return (
     <div className='mb-5 flex flex-col justify-center'>
       <div className={progressBarClasses} style={{ width: progress + '%' }}></div>
-      <p className={successUpload}> Upload completed!</p>
     </div>
   )
 }

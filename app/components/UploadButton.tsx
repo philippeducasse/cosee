@@ -5,7 +5,7 @@ import ProgressBar from './ProgressBar';
 import { UploadButtonProps, Image } from '../page';
 
 
-const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, setTags, tags, progress, setProgress, imageTitle, generatedImage, setGeneratedImage}) => {
+const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, setTags, tags, progress, setProgress, setUploadSuccess, generatedImage, setGeneratedImage}) => {
   const uploadImage = async (image: Image | any, generatedImage: string | any) => {
     console.log(image, generatedImage)
     try {
@@ -56,6 +56,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, 
             setProgress(0);
             setTags({tag1:'', tag2:'', tag3:''})
             console.log('File has been uploaded successfully and added to Firestore');
+            setUploadSuccess(true);
           } catch (error:any) {
             setError(error.Error);
           }
