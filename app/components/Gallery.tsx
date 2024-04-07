@@ -27,6 +27,9 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
       currentgalleryImage.style.transform = 'scale(1)';
       currentgalleryImage.style.zIndex = '0';
       currentgalleryImage.classList.remove('flip')
+      let targetArrow = currentgalleryImage.querySelector('.corner')
+      targetArrow!.classList.remove('show-arrow')
+
     };
     // set style for new selected image
     let targetGalleryImage = children[targetIndex] as HTMLDivElement;
@@ -38,6 +41,8 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
     // update container width
     galleryContainer.current!.style.transform = `translateX(calc(50% - ${imageWidth * targetIndex + imageWidth * 0.4}px))`
     
+    let targetArrow = targetGalleryImage.querySelector('.corner')
+    targetArrow!.classList.add('show-arrow');
     setFlippedImages({})
   };
 
@@ -97,13 +102,14 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
             >
               {/* FRONT */}
               <div
-                className="front rounded-lg bg-no-repeat bg-white bg-cover bg-center cursor-pointer "
+                className=" front rounded-lg bg-no-repeat bg-white bg-cover bg-center cursor-pointer "
                 style={{
                   width: imageWidth,
                   height: imageHeight,
                   backgroundImage: `url(${image.imageUrl})`,
                 }}
               />
+              <Image src='/arrow.png' alt="arrow"width={20} height={20}  className="corner" />
               {/* BACK */}
               <div className="back absolute  rounded-lg bg-no-repeat bg-white bg-center cursor-pointer p-2" style={{
                     width: imageWidth,
