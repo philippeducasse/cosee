@@ -2,11 +2,15 @@ import { ref, uploadBytesResumable, getDownloadURL, uploadBytes } from 'firebase
 import { collection, setDoc, doc, addDoc } from 'firebase/firestore';
 import { storage, db } from '../firebase/config';
 import ProgressBar from './ProgressBar';
-import { UploadButtonProps, Image } from '../page';
+import { UploadButtonProps, ImageType } from '../Types';
 
 
-const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, setTags, tags, progress, setProgress, setUploadSuccess, generatedImage, setGeneratedImage}) => {
-  const uploadImage = async (image: Image | any, generatedImage: string | any) => {
+const UploadButton= ({ image, setImage, setError,
+   setTags, tags, progress, setProgress,
+   setUploadSuccess, generatedImage, setGeneratedImage
+    }: UploadButtonProps
+    ) => {
+  const uploadImage = async (image: ImageType | any, generatedImage: string ) => {
     console.log(image, generatedImage)
     try {
       let response;
@@ -36,7 +40,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, 
         },
         (error) => {
           // Handle any errors during upload
-          setError(error);
+          setError(`${error}`);
         },
         async () => {
           // Once the upload is complete
@@ -52,7 +56,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, 
             };
             await addDoc(collection(db, 'images'), imageCollection);
             setImage(null);
-            setGeneratedImage(null)
+            setGeneratedImage('')
             setProgress(0);
             setTags({tag1:'', tag2:'', tag3:''})
             console.log('File has been uploaded successfully and added to Firestore');
@@ -75,7 +79,7 @@ const UploadButton: React.FC<UploadButtonProps> = ({ image, setImage, setError, 
       setError('Please select or generate an image!')
     } else{
       uploadImage(image, generatedImage)
-      setError(null)
+      setError('')
     }
   }
 

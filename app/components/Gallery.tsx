@@ -2,9 +2,7 @@
 
 import React, { FC } from 'react';
 import { useEffect, useRef, useState } from 'react';
-import { GalleryProps } from '../page';
-import { doc, deleteDoc } from 'firebase/firestore';
-import { db } from '@/app/firebase/config';
+import { GalleryProps, ImageType } from '../Types';
 import Image from 'next/image';
 
 const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
@@ -47,7 +45,7 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
   };
 
 
-  const flipImage = (event:any, index:number) => {
+  const flipImage = (event:React.MouseEvent, index:number) => {
     event.preventDefault(); // Prevent default action
     const flipContainers = Array.from(galleryContainer.current!.children);
     const cardContainer = flipContainers[index];
@@ -86,7 +84,7 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
         )}
 
         {!isLoading &&
-          filteredImages.map((image: any, index: number) => (
+          filteredImages.map((image: ImageType, index: number) => (
             // CARD
             <div
               key={image.imageUrl}
@@ -118,7 +116,7 @@ const Gallery: FC<GalleryProps> = ({filteredImages, isLoading}) => {
                 <div 
                   className="details flex items-center justify-center flex-col mx-auto h-full"
                 >
-                  {image.ai == 'true'? (
+                  {image.ai == true? (
                     <Image src="/robot.png" height={100} width={100} alt="AI Generated" className=''/>
                   ) : (
                     <Image src="/camera.png" height={100} width={100} alt="Human Generated" />

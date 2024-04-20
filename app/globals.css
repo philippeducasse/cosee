@@ -68,6 +68,14 @@ body{
   transform: rotate(-45deg) translateY(6px) translate(-6px);
 }
 /* NAVBAR */
+
+.navbar{
+}
+
+.navbar nav{
+  height: 2.5rem;
+}
+
 .nav-list{
   font-size: 1.2rem;
   color:#fff;
@@ -82,9 +90,10 @@ body{
 }
 
 .cta{
+  width: 20rem;
   font-size: 1.2rem;
-  height: 80%;
-  margin: auto 0;
+  height: 100%;
+  margin: auto;
   border: #fff 3px solid;
   font-weight: 600;
   background-color: #03c1cc;

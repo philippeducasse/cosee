@@ -1,5 +1,5 @@
 import React from 'react'
-import { DisplayImageProps } from '../page';
+import { DisplayImageProps } from '../Types';
 
 const DisplayImage: React.FC<DisplayImageProps>  = ({setImage, image, generatedImage, setGeneratedImage, setError}) => {
 

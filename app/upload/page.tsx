@@ -10,14 +10,14 @@ import DisplayImage from '../components/DisplayImage';
 import ProgressBar from '../components/ProgressBar';
 
 const UploadImage = () => {
-  const [image, setImage] = useState(null);
+  const [image, setImage] = useState<File | null>(null);
   const [tags, setTags] = useState({
     tag1: "",
     tag2: "",
     tag3: "",
   });
   const [imageTitle, setImageTitle] = useState("");
-  const [generatedImage, setGeneratedImage] = useState("");
+  const [generatedImage, setGeneratedImage] = useState<string>("");
   const [progress, setProgress] = useState<number>(0);
   const [generating, setGenerating] = useState(false)
   const [error, setError] = useState("");

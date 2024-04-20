@@ -3,17 +3,17 @@
 import React from 'react';
 import { db } from '../firebase/config';
 import { collection, addDoc } from 'firebase/firestore';
-import { TagFormProps } from "../page";
+import { TagFormProps } from '../Types';
 
 
-const TagForm: React.FC<TagFormProps> = ({tags, setTags, setUploadSuccess}) => { 
+const TagForm = ({tags, setTags, setUploadSuccess}: TagFormProps) => { 
 
-  const handleTagChange = (e: any) => {
+  const handleTagChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {name, value} = e.target
     setTags({...tags, [name]: value});
     setUploadSuccess(false)
   }
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     await addDoc(collection(db, "tags"), tags )
     console.log(tags)

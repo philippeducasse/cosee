@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchBarProps } from '../page';
+import { SearchBarProps } from '../Types';
 
 
 

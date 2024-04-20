@@ -13,12 +13,12 @@ const Navbar = () => {
     }
 
     return (
-        <div>
-            <section className='w-screen p-6 mx-auto bg-gradient-to-r from-cosee-t to-cosee-b'>
+        <div className='navbar flex items-center'>
+            <section className='w-screen p-5 mx-auto bg-gradient-to-r from-cosee-t to-cosee-b'>
                 {/* Navbar */}
                 <nav className="relative ">
                     {/* Flex Container */}
-                    <div className="flex px-8 items-center">
+                    <div className="flex px-8 items-center h-full">
                         {/* Logo */}
                             <Link href="/">
                                 <Image src='/logo.png' alt='Ai-gram Logo' width={200} height={30} className='rounded-3xl md:w-full w-1/1.5'></Image>
@@ -32,7 +32,7 @@ const Navbar = () => {
                         </div>
                         {/* button */}
                         <Link href="/upload"
-                         className="cta hidden md:block p-2 px-6 pt-2 duration-300 rounded-full w-100 text-center"
+                         className="cta hidden md:block px-6 duration-300 rounded-full w-100 text-center"
                          >
                             Generate image
                          </Link>

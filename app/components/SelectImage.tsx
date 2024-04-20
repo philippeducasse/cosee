@@ -2,7 +2,7 @@
 
 import { ChangeEvent } from 'react';
 
-import { SelectImageProps } from '../page';
+import { SelectImageProps } from '../Types';
 
 const SelectImage: React.FC<SelectImageProps> = ({ image,generatedImage, error, setImage, setError }) => {
 

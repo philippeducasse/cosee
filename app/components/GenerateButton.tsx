@@ -1,5 +1,5 @@
 import React from "react";
-import { GenerateButtonProps } from "../page";
+import { GenerateButtonProps } from '../Types';
 
 // Ensure you've imported all necessary functions and components
 interface ImageItem {
@@ -12,7 +12,7 @@ interface ProviderResponse {
 }
 
 interface ApiResponse {
-  deepai?: ProviderResponse;
+  deepai: ProviderResponse;
   // Define other providers as needed
 }
 
@@ -47,7 +47,7 @@ const GenerateButton: React.FC<GenerateButtonProps> = ({
 
     fetch("https://api.edenai.run/v2/image/generation", options)
       .then((response) => response.json())
-      .then((response: any) => {
+      .then((response: ApiResponse) => {
         // Assuming the API returns an image URL in the response object
         // Check if the response has the expected property
         console.log(response);
