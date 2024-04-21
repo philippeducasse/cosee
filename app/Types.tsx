@@ -33,8 +33,8 @@ export type DisplayImageProps = {
   setError: React.Dispatch<React.SetStateAction<string>>;
 };
 
-export type SelectImageTypeProps = {
-  image: Blob;
+export type SelectImageProps = {
+  image: File | null;
   error: string;
   generatedImage: string | null;
   setImage: React.Dispatch<React.SetStateAction<File | null>>;

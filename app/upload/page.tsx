@@ -16,7 +16,6 @@ const UploadImage = () => {
     tag2: "",
     tag3: "",
   });
-  const [imageTitle, setImageTitle] = useState("");
   const [generatedImage, setGeneratedImage] = useState<string>("");
   const [progress, setProgress] = useState<number>(0);
   const [generating, setGenerating] = useState(false)
