@@ -27,7 +27,7 @@ const DisplayImage: React.FC<DisplayImageProps>  = ({setImage, image, generatedI
                         border-0 bg-cosee-t hover:opacity-90"
             onClick={() => {
               setImage(null);
-              setGeneratedImage(null);
+              setGeneratedImage('');
               setError("");
             }}
           >
