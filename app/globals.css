@@ -54,8 +54,7 @@ body{
   transform: translateY(14px)
 }
 
-.open{
-}
+
 .open .hamburger-top{
   transform: rotate(45deg) translateY(6px) translate(6px);
 }
@@ -68,9 +67,6 @@ body{
   transform: rotate(-45deg) translateY(6px) translate(-6px);
 }
 /* NAVBAR */
-
-.navbar{
-}
 
 .navbar nav{
   height: 2.5rem;
@@ -213,13 +209,3 @@ body{
     transform: rotate(360deg);
   }
 }
-
-/* @keyframes detailFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-
-.flipper.back .details {
-  animation: detailFadeIn 0.3s ease forwards;
-  animation-delay: 2s; /* Sync with the second half of the flip */
