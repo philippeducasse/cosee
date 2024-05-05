@@ -3,8 +3,10 @@ import React from 'react';
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import SearchBar from './SearchBar';
+import { SearchBarProps } from '../Types';
 
-const Navbar = () => {
+const Navbar = ({setSearchInput}: SearchBarProps) => {
 
     const [isOpen, setIsOpen] = useState(false);
 
@@ -15,22 +17,17 @@ const Navbar = () => {
     return (
         <div className='navbar flex items-center'>
             <section className='w-screen p-5 mx-auto bg-gradient-to-r from-cosee-t to-cosee-b'>
-                {/* Navbar */}
                 <nav className="relative ">
-                    {/* Flex Container */}
                     <div className="flex px-8 items-center h-full">
-                        {/* Logo */}
                             <Link href="/">
                                 <Image src='/logo.png' alt='Ai-gram Logo' width={200} height={30} className='rounded-3xl md:w-full w-1/1.5'></Image>
                             </Link>
-                        {/* Menu Items */}
                         <div className="nav-list hidden md:flex justify-evenly w-full space-x-6">
                             <Link href='/how' className='nav-item my-auto'>How it works</Link>
                             <Link href='/' className='nav-item my-auto'>Gallery</Link>
                             <Link href='/about' className='nav-item my-auto'>About me</Link>
-
+                            <SearchBar setSearchInput={setSearchInput}/>
                         </div>
-                        {/* button */}
                         <Link href="/upload"
                          className="cta hidden md:block px-6 duration-300 rounded-full w-100 text-center"
                          >

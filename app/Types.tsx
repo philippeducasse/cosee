@@ -8,6 +8,10 @@ export type ImageType = {
   ai: boolean;
 };
 
+export type NavbarProps = {
+  setSearchInput : React.Dispatch<React.SetStateAction<string>>;
+}
+
 export type UploadButtonProps = {
   image: File | null;
   generatedImage: string;

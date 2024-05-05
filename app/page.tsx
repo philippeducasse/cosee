@@ -27,9 +27,8 @@ const HomePage = () => {
 
   return (
     <div className="w-screen flex flex-col items-center overflow-x-clip">
-      <Navbar />
+      <Navbar setSearchInput={setSearchInput}/>
       <div className="mt-12 pb-20">
-        <SearchBar setSearchInput={setSearchInput} />
         <Gallery filteredImages={filteredImages} isLoading={isLoading} />
       </div>
     </div>
