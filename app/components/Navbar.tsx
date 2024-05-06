@@ -5,9 +5,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import SearchBar from './SearchBar';
 import { SearchBarProps } from '../Types';
+import { usePathname } from 'next/navigation';
 
 const Navbar = ({setSearchInput}: SearchBarProps) => {
-
+    const pathname = usePathname(); 
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -22,11 +23,11 @@ const Navbar = ({setSearchInput}: SearchBarProps) => {
                             <Link href="/">
                                 <Image src='/logo.png' alt='Ai-gram Logo' width={200} height={30} className='rounded-3xl md:w-full w-1/1.5'></Image>
                             </Link>
-                        <div className="nav-list hidden md:flex justify-evenly w-full space-x-6">
+                        <div className="nav-list hidden md:flex justify-evenly w-full">
+                            {pathname === '/' ? <SearchBar setSearchInput={setSearchInput}/> : null}
                             <Link href='/how' className='nav-item my-auto'>How it works</Link>
                             <Link href='/' className='nav-item my-auto'>Gallery</Link>
                             <Link href='/about' className='nav-item my-auto'>About me</Link>
-                            <SearchBar setSearchInput={setSearchInput}/>
                         </div>
                         <Link href="/upload"
                          className="cta hidden md:block px-6 duration-300 rounded-full w-100 text-center"

@@ -3,12 +3,10 @@ import {useEffect, useState} from 'react';
 import Navbar from './components/Navbar';
 import Gallery from './components/Gallery';
 import useFirestore from './components/hooks/useFirestore';
-import SearchBar from './components/SearchBar';
-
 
 const HomePage = () => {
 
-  const [searchInput, setSearchInput] = useState('');
+  const [searchInput, setSearchInput] = useState<string>('');
   const { docs, isLoading } = useFirestore('images');
   const [filteredImages, setFilteredImages] = useState<any>([]);
 

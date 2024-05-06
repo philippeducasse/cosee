@@ -7,11 +7,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ setSearchInput }) => {
 
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         e.preventDefault()
-        setSearchInput(e.target.value)
+        setSearchInput!(e.target.value)
     }
 
     return (
-        <div className="flex justify-center mb-12">
+        <div className="flex justify-center">
             <input
                 type='text'
                 onChange={handleInput}

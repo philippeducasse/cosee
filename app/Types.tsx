@@ -9,7 +9,7 @@ export type ImageType = {
 };
 
 export type NavbarProps = {
-  setSearchInput : React.Dispatch<React.SetStateAction<string>>;
+  setSearchInput?: React.Dispatch<React.SetStateAction<string>> ;
 }
 
 export type UploadButtonProps = {
@@ -68,7 +68,7 @@ export type GenerateButtonProps = {
 };
 
 export type SearchBarProps = {
-  setSearchInput: React.Dispatch<React.SetStateAction<string>>;
+  setSearchInput?: React.Dispatch<React.SetStateAction<string>>;
 };
 
 export type GalleryProps = {

@@ -4,7 +4,7 @@ import Navbar from '../components/Navbar'
 const Cosee = () => {
     return (
         <>
-            <Navbar />
+            <Navbar/>
             <div className='flex flex-col  lg:w-1/2 bg-white bg-opacity-80 mx-auto p-6'>
                 <h1 className='text-3xl mx-auto my-4 text-center'>Welcome to Ai-Gram!</h1>
                 <p className=' text-center text-lg mx-auto'>Ai-Gram allows you to scroll through a list of images. Some are actual photographs, and some are ai-generated. Can you spot which ones are AI? <span className='font-bold'>click on the selected image</span> to find out! </p>
