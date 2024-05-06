@@ -76,7 +76,6 @@ body{
   font-size: 1.2rem;
   color:#fff;
   margin: auto;
-  
 }
 
 .nav-item:hover{
@@ -207,5 +206,18 @@ body{
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar{
+    margin-bottom: 5rem;
+  }
+  .cta{
+    display: none;
+  }
+
+  .hamburger{
+    top: 15px;
   }
 }

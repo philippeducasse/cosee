@@ -48,7 +48,7 @@ const Navbar = ({setSearchInput}: SearchBarProps) => {
 
                     {/* Mobile Menu */}
                     <div className="md:hidden">
-                        <div id="menu" className={`absolute flex-col m-2 items-center bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md ${isOpen ? 'open flex z-100' : 'hidden'}`}>
+                        <div id="menu" className={`absolute flex-col m-6 items-center bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md ${isOpen ? 'open flex z-100' : 'hidden'}`}>
                             <Link href='/' className='nav-item py-1'>Gallery</Link>
                             <Link href='/how' className='nav-item py-1'>How it works</Link>
                             <Link href='/about' className='nav-item py-1'>About Me</Link>
