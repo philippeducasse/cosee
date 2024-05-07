@@ -18,19 +18,19 @@ const Navbar = ({setSearchInput}: SearchBarProps) => {
     return (
         <div className='navbar flex items-center'>
             <section className='w-screen p-5 mx-auto bg-gradient-to-r from-cosee-t to-cosee-b'>
-                <nav className="relative ">
+                <nav className="relative">
                     <div className="flex px-8 items-center h-full">
                             <Link href="/">
                                 <Image src='/logo.png' alt='Ai-gram Logo' width={200} height={30} className='rounded-3xl md:w-full w-1/1.5'></Image>
                             </Link>
-                        <div className="nav-list hidden md:flex justify-evenly w-full">
                             {pathname === '/' ? <SearchBar setSearchInput={setSearchInput}/> : null}
+                        <div className="nav-list hidden lg:flex justify-evenly w-full">
                             <Link href='/how' className='nav-item my-auto'>How it works</Link>
                             <Link href='/' className='nav-item my-auto'>Gallery</Link>
                             <Link href='/about' className='nav-item my-auto'>About me</Link>
                         </div>
                         <Link href="/upload"
-                         className="cta hidden md:block px-6 duration-300 rounded-full w-100 text-center"
+                         className="cta hidden lg:flex px-6 duration-300 rounded-full w-100 text-center"
                          >
                             Generate image
                          </Link>
@@ -38,7 +38,7 @@ const Navbar = ({setSearchInput}: SearchBarProps) => {
                         {/* Hamburger Icon */}
                         <div onClick={toggleMenu} className=''>
                             <button id='menu-btn'
-                                className={`hamburger md:hidden flex focus:outline-none ${isOpen ? 'open' : ''}`}>
+                                className={`hamburger lg:hidden flex focus:outline-none ${isOpen ? 'open' : ''}`}>
                                 <span className="hamburger-top"></span>
                                 <span className="hamburger-middle"></span>
                                 <span className="hamburger-bottom"></span>
@@ -47,7 +47,7 @@ const Navbar = ({setSearchInput}: SearchBarProps) => {
                     </div>
 
                     {/* Mobile Menu */}
-                    <div className="md:hidden">
+                    <div className="lg:hidden">
                         <div id="menu" className={`absolute flex-col m-6 items-center bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md ${isOpen ? 'open flex z-100' : 'hidden'}`}>
                             <Link href='/' className='nav-item py-1'>Gallery</Link>
                             <Link href='/how' className='nav-item py-1'>How it works</Link>

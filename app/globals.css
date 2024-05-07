@@ -85,14 +85,16 @@ body{
 
 .cta{
   display: flex;
-  place-content: center;
-  width: 20rem;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
   font-size: 1.2rem;
   height: 100%;
   margin: auto;
   border: #fff 3px solid;
   background-color: #03c1cc;
   color: #333;
+  min-width: 200px;
 }
 
 .cta:hover{
@@ -209,12 +211,16 @@ body{
   }
 }
 
+@media screen and (max-width:1200px){
+  .cta{
+    display: none;
+  }
+
+}
+
 @media screen and (max-width: 600px) {
   .navbar{
     margin-bottom: 5rem;
-  }
-  .cta{
-    display: none;
   }
 
   .hamburger{
