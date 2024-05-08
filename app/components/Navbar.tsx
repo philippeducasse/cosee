@@ -21,7 +21,7 @@ const Navbar = ({setSearchInput}: SearchBarProps) => {
                 <nav className="relative">
                     <div className="flex px-8 items-center h-full">
                             <Link href="/">
-                                <Image src='/logo.png' alt='Ai-gram Logo' width={200} height={30} className='rounded-3xl md:w-full w-1/1.5'></Image>
+                                <Image src='/logo.png' alt='Ai-gram Logo' width={200} height={30} className='logo rounded-3xl w-1/1.5'></Image>
                             </Link>
                             {pathname === '/' ? <SearchBar setSearchInput={setSearchInput}/> : null}
                         <div className="nav-list hidden lg:flex justify-evenly w-full">
