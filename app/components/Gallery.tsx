@@ -12,7 +12,7 @@ const Gallery: FC<GalleryProps> = ({ filteredImages, isLoading }) => {
   const imageWidth =
     typeof window !== "undefined" && window.innerWidth < 500 ? 150 : 250;
   const imageHeight =
-    typeof window !== "undefined" && window.innerWidth < 500 ? 200 : 300;
+    typeof window !== "undefined" && window.innerWidth < 500 ? 200 : 275;
 
   // Instance variable to save current selected photo
   const selectedIndex = useRef(-1);
