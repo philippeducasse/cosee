@@ -27,7 +27,6 @@ const Navbar = ({setSearchInput}: SearchBarProps) => {
                         <div className="nav-list hidden lg:flex justify-evenly w-full">
                             <Link href='/how' className='nav-item my-auto'>How it works</Link>
                             <Link href='/' className='nav-item my-auto'>Gallery</Link>
-                            <Link href='/about' className='nav-item my-auto'>About me</Link>
                         </div>
                         <Link href="/upload"
                          className="cta hidden lg:flex px-6 duration-300 rounded-full w-100 text-center"
@@ -51,7 +50,6 @@ const Navbar = ({setSearchInput}: SearchBarProps) => {
                         <div id="menu" className={`absolute flex-col m-6 items-center bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md ${isOpen ? 'open flex z-100' : 'hidden'}`}>
                             <Link href='/' className='nav-item py-1'>Gallery</Link>
                             <Link href='/how' className='nav-item py-1'>How it works</Link>
-                            <Link href='/about' className='nav-item py-1'>About Me</Link>
                             <Link href="/upload" className="nav-item py-1">Generate image</Link>
                         </div>
                     </div>
