@@ -223,6 +223,12 @@ body{
     margin-bottom: 5rem;
   }
 
+  .logo{
+    width: 200px;
+    max-width: none
+    ;
+  }
+
   .hamburger{
     top: 15px;
   }
