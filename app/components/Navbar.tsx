@@ -17,9 +17,9 @@ const Navbar = ({setSearchInput}: SearchBarProps) => {
 
     return (
         <div className='navbar flex items-center'>
-            <section className='w-screen p-5 mx-auto bg-gradient-to-r from-cosee-t to-cosee-b'>
-                <nav className="relative">
-                    <div className="flex px-8 items-center h-full">
+            <section className='flex justify-evenly w-screen p-5 mx-auto bg-gradient-to-r from-cosee-t to-cosee-b'>
+                <nav className="relative h-full">
+                    <div className="nav-container flex px-8 items-center h-full">
                             <Link href="/">
                                 <Image src='/logo.png' alt='Ai-gram Logo' width={400} height={30} className='logo rounded-3xl'></Image>
                             </Link>
