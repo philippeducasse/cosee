@@ -48,10 +48,10 @@ const Navbar = ({ setSearchInput }: SearchBarProps) => {
             </Link>
 
             {/* Hamburger Icon */}
-            <div onClick={toggleMenu} className="">
+            <div onClick={toggleMenu} className="hamburger">
               <button
                 id="menu-btn"
-                className={`hamburger lg:hidden flex focus:outline-none ${
+                className={` lg:hidden flex focus:outline-none ${
                   isOpen ? "open" : ""
                 }`}
               >

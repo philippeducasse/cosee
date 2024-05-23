@@ -23,8 +23,8 @@ body {
 
 .hamburger {
   position: absolute;
-  top: 25px;
-  left: 250px;
+  left: 36%;
+  top: 44%;
   cursor: pointer;
   width: 24px;
   height: 24px;
@@ -222,20 +222,33 @@ body {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   .navbar {
     margin-bottom: 5rem;
   }
 
-  .navbar nav {
-    height: 7rem;
+  .logo{
+    width: 125px;
   }
+
+ 
 
   .nav-container {
     flex-wrap: wrap;
     gap: 15px;
   }
   .hamburger {
-    top: 15px;
+    
+  }
+  
+}
+
+@media screen and (max-width: 484px) {
+  .hamburger {
+    top: 13%;
+    left: 73%;
+  }
+  .navbar nav {
+    height: 7rem;
   }
 }
