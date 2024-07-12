@@ -103,7 +103,7 @@ const Gallery: FC<GalleryProps> = ({ filteredImages, isLoading }) => {
 
   return (
     <div
-      className="container flex transition-all duration-700 h-full"
+      className="container flex transition-all duration-700"
       ref={galleryContainer}
     >
       {isLoading && <div className="spinner flex mx-auto justify-center"></div>}

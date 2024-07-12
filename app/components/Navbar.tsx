@@ -29,10 +29,11 @@ const Navbar = ({ setSearchInput }: SearchBarProps) => {
                 className="logo rounded-3xl"
               ></Image>
             </Link>
+            
+            <div className="nav-list hidden lg:flex justify-evenly w-full">
             {pathname === "/" ? (
               <SearchBar setSearchInput={setSearchInput} />
             ) : null}
-            <div className="nav-list hidden lg:flex justify-evenly w-full">
               <Link href="/how" className="nav-item my-auto">
                 How it works
               </Link>
@@ -42,7 +43,7 @@ const Navbar = ({ setSearchInput }: SearchBarProps) => {
             </div>
             <Link
               href="/upload"
-              className="cta hidden lg:flex px-6 duration-300 rounded-full w-100 text-center"
+              className="cta hidden lg:flex px-6 duration-300 rounded-full w-100 text-center max-w-[150px]"
             >
               Generate image
             </Link>
