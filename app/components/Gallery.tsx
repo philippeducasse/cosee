@@ -170,15 +170,7 @@ const Gallery: FC<GalleryProps> = ({ filteredImages, isLoading }) => {
                     {" "}
                     {image.tags[0]}, {image.tags[1]}, {image.tags[2]}
                   </p>
-                </div>
-                {/* <button
-                    className="delete-btn"
-                    onClick={async () =>
-                      await deleteDoc(doc(db, "images", image.title))
-                    }
-                  >
-                    X
-                  </button> */}
+                </div>              
               </div>
             </div>
           </div>
