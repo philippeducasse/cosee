@@ -35,11 +35,12 @@ const GenerateButton: React.FC<GenerateButtonProps> = ({
           "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNDQ4Y2NmM2YtNjRlOC00MTUwLTkwMGUtZDMxOTI5YWM3ZGQ0IiwidHlwZSI6ImFwaV90b2tlbiJ9.EYpWaflnhQHCkl3C6-hwJrvPJ23YP_H2fg4QgThEcCg",
       },
       body: JSON.stringify({
-        providers: "deepai",
+        providers: "amazon",
         text: tagsString,
         response_as_dict: true,
+        show_base_64: true,
         attributes_as_list: false,
-        show_original_response: false,
+        show_original_response: true,
         resolution: "512x512",
         num_images: 1,
       }),
@@ -50,15 +51,12 @@ const GenerateButton: React.FC<GenerateButtonProps> = ({
       .then((response: ApiResponse) => {
         // Assuming the API returns an image URL in the response object
         // Check if the response has the expected property
-        console.log(response);
-        if (
-          response.deepai.status === "success" &&
-          response.deepai.items.length > 0
-        ) {
-          const imageUrl = response.deepai.items[0].image_resource_url; // Extract the image URL
+        console.log("RESPONSE:", response);
+        try {
+          const imageUrl = response.amazon.items[0].image_resource_url; // Extract the image URL
           setGeneratedImage(imageUrl); // Update the image state with the URL
           setGenerating(false);
-        } else {
+        } catch {
           console.error("Image data not found in response");
           setError("Failed to generate image");
         }
