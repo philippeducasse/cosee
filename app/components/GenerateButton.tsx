@@ -12,7 +12,7 @@ interface ProviderResponse {
 }
 
 interface ApiResponse {
-  deepai: ProviderResponse;
+  amazon: ProviderResponse;
   // Define other providers as needed
 }
 
