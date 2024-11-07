@@ -12,8 +12,10 @@ interface ProviderResponse {
 }
 
 interface ApiResponse {
-  amazon: ProviderResponse;
-  // Define other providers as needed
+  amazon?: ProviderResponse;
+  stabilityai?: ProviderResponse,
+  openai?: ProviderResponse,
+  replicate: ProviderResponse,
 }
 
 const GenerateButton: React.FC<GenerateButtonProps> = ({
@@ -36,6 +38,7 @@ const GenerateButton: React.FC<GenerateButtonProps> = ({
       },
       body: JSON.stringify({
         providers: "amazon",
+        fallback_providers: "openai, stabilityai, replicate/classic,",
         text: tagsString,
         response_as_dict: true,
         show_base_64: true,
@@ -49,13 +52,21 @@ const GenerateButton: React.FC<GenerateButtonProps> = ({
     fetch("https://api.edenai.run/v2/image/generation", options)
       .then((response) => response.json())
       .then((response: ApiResponse) => {
-        // Assuming the API returns an image URL in the response object
-        // Check if the response has the expected property
-        console.log("RESPONSE:", response);
         try {
-          const imageUrl = response.amazon.items[0].image_resource_url; // Extract the image URL
-          setGeneratedImage(imageUrl); // Update the image state with the URL
-          setGenerating(false);
+          let imageUrl: string | undefined;
+          if (response.amazon) {
+            imageUrl = response.amazon.items[0].image_resource_url;
+          } else if (response.openai) {
+            imageUrl = response.openai.items[0].image_resource_url;
+          } else if (response.stabilityai) {
+            imageUrl = response.stabilityai.items[0].image_resource_url;
+          } else if (response.replicate) {
+            imageUrl = response.replicate.items[0].image_resource_url;
+          }
+          if (imageUrl) {
+            setGeneratedImage(imageUrl);
+            setGenerating(false);
+          } else setError("Failed to generate image");
         } catch {
           console.error("Image data not found in response");
           setError("Failed to generate image");
