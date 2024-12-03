@@ -45,7 +45,7 @@ const UploadButton = ({ image, setImage, setError,
               imageUrl: imageUrl,
               createdAt: new Date(),
               tags: tags,
-              ai: `${generatedImage ? true : false}`
+              ai: !!generatedImage
             };
             await addDoc(collection(db, 'images'), imageCollection);
             setImage(null);
@@ -65,7 +65,6 @@ const UploadButton = ({ image, setImage, setError,
   };
 
   const handleSubmit = () => {
-    console.log("click");
     if (!tags.tag1 || !tags.tag2 || !tags.tag3) {
       setError('Please give your image three tags!')
     }

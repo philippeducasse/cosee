@@ -27,7 +27,7 @@ const Gallery: FC<GalleryProps> = ({ filteredImages, isLoading }) => {
       galleryImage.style.transform = "scale(1)";
       galleryImage.style.zIndex = "0";
       galleryImage.classList.remove("flip");
-  
+
       let targetArrow = galleryImage.querySelector(".corner");
       targetArrow!.classList.remove("show-arrow");
     });
@@ -51,9 +51,8 @@ const Gallery: FC<GalleryProps> = ({ filteredImages, isLoading }) => {
     // updated selectedIndex with current targetIndex
     selectedIndex.current = targetIndex;
     // update container width
-    galleryContainer.current!.style.transform = `translateX(calc(50% - ${
-      imageWidth * targetIndex + imageWidth * 0.4
-    }px))`;
+    galleryContainer.current!.style.transform = `translateX(calc(50% - ${imageWidth * targetIndex + imageWidth * 0.4
+      }px))`;
 
     let targetArrow = targetGalleryImage.querySelector(".corner");
     targetArrow!.classList.add("show-arrow");
@@ -91,7 +90,7 @@ const Gallery: FC<GalleryProps> = ({ filteredImages, isLoading }) => {
       unselectImages();
       selectedIndex.current = -1;  // Reset the selectedIndex
     }
-  
+
     // Automatically select an image based on the available count
     if (filteredImages.length > 0) {
       const indexToSelect = filteredImages.length === 1 ? 0 : 2;
@@ -100,6 +99,7 @@ const Gallery: FC<GalleryProps> = ({ filteredImages, isLoading }) => {
       }
     }
   }, [filteredImages]);
+
 
   return (
     <div
@@ -148,7 +148,7 @@ const Gallery: FC<GalleryProps> = ({ filteredImages, isLoading }) => {
               }}
             >
               <div className="details flex items-center justify-center flex-col mx-auto h-full">
-                {image.ai == true ? (
+                {image.ai ? (
                   <Image
                     src="/robot.png"
                     height={100}
@@ -170,7 +170,7 @@ const Gallery: FC<GalleryProps> = ({ filteredImages, isLoading }) => {
                     {" "}
                     {image.tags[0]}, {image.tags[1]}, {image.tags[2]}
                   </p>
-                </div>              
+                </div>
               </div>
             </div>
           </div>

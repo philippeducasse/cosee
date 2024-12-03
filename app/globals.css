@@ -23,8 +23,8 @@ body {
 
 .hamburger {
   position: absolute;
-  left: 36%;
-  top: 44%;
+  top: 32%;
+  left: 60%;
   cursor: pointer;
   width: 24px;
   height: 24px;
@@ -65,7 +65,6 @@ body {
 }
 /* NAVBAR */
 
-
 .logo {
   width: 200px;
   max-width: none;
@@ -76,8 +75,8 @@ body {
 }
 
 .nav-container {
- width: 100vw;
- justify-content: space-around;
+  width: 100vw;
+  justify-content: space-around;
 }
 
 .nav-list {
@@ -222,33 +221,23 @@ body {
   }
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 975px) {
   .navbar {
     margin-bottom: 5rem;
   }
 
-  .logo{
+  .logo {
     width: 125px;
   }
-
- 
 
   .nav-container {
     flex-wrap: wrap;
     gap: 15px;
   }
-  .hamburger {
-    
-  }
-  
 }
 
 @media screen and (max-width: 484px) {
-  .hamburger {
-    top: 13%;
-    left: 73%;
-  }
   .navbar nav {
-    height: 7rem;
+    height: 3rem;
   }
 }

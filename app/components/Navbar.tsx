@@ -26,14 +26,14 @@ const Navbar = ({ setSearchInput }: SearchBarProps) => {
                 alt="Ai-gram Logo"
                 width={400}
                 height={30}
-                className="logo rounded-3xl"
+                className="logo rounded-3xl w-f"
               ></Image>
             </Link>
-            
+
             <div className="nav-list hidden lg:flex justify-evenly w-full">
-            {pathname === "/" ? (
-              <SearchBar setSearchInput={setSearchInput} />
-            ) : null}
+              {pathname === "/" ? (
+                <SearchBar setSearchInput={setSearchInput} />
+              ) : null}
               <Link href="/how" className="nav-item my-auto">
                 How it works
               </Link>
@@ -41,20 +41,22 @@ const Navbar = ({ setSearchInput }: SearchBarProps) => {
                 Gallery
               </Link>
             </div>
-            <Link
-              href="/upload"
-              className="cta hidden lg:flex px-6 duration-300 rounded-full w-100 text-center max-w-[150px]"
-            >
-              Generate image
-            </Link>
+            <div className="mr-6">
+              <Link
+                href="/upload"
+                className="cta hidden lg:flex px-6 duration-300 rounded-full w-100 text-center max-w-[150px]"
+              >
+                Generate image
+              </Link>
+            </div>
+
 
             {/* Hamburger Icon */}
             <div onClick={toggleMenu} className="hamburger">
               <button
                 id="menu-btn"
-                className={` lg:hidden flex focus:outline-none ${
-                  isOpen ? "open" : ""
-                }`}
+                className={` lg:hidden flex focus:outline-none ${isOpen ? "open" : ""
+                  }`}
               >
                 <span className="hamburger-top"></span>
                 <span className="hamburger-middle"></span>
@@ -67,9 +69,8 @@ const Navbar = ({ setSearchInput }: SearchBarProps) => {
           <div className="lg:hidden">
             <div
               id="menu"
-              className={`absolute flex-col m-6 items-center bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md ${
-                isOpen ? "open flex z-100" : "hidden"
-              }`}
+              className={`absolute flex-col m-6 items-center bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md ${isOpen ? "open flex z-100" : "hidden"
+                }`}
             >
               <Link href="/" className="nav-item py-1">
                 Gallery
