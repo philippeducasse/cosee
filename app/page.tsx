@@ -1,5 +1,5 @@
 'use client';
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import Gallery from './components/Gallery';
 import useFirestore from './components/hooks/useFirestore';
@@ -24,9 +24,9 @@ const HomePage = () => {
   }, [docs, searchInput]);
 
   return (
-    <div className="w-screen flex flex-col items-center overflow-x-clip">
-      <Navbar setSearchInput={setSearchInput}/>
-      <div className="mt-12">
+    <div className="w-screen flex flex-col items-center overflow-x-clip h-screen my-auto">
+      <Navbar setSearchInput={setSearchInput} />
+      <div className="my-auto">
         <Gallery filteredImages={filteredImages} isLoading={isLoading} />
       </div>
     </div>
